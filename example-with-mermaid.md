@@ -22,8 +22,9 @@ metadata description of curation transforms for the input data.
 graph LR;
 
     %% Define the common flow items:
-    A-->C
-    B-->C
+    A--> | Data Filtering | B--> | Data Labeling | C
+    %%A--> B
+    %%B-->C
     subgraph Pipeline ["**Pipeline**"]
         
         %% Add an empty node to overcome some formatting issues
@@ -31,7 +32,7 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                C
+                C 
             end
             subgraph Events ["**Events**"]
                 D
@@ -41,7 +42,9 @@ graph LR;
             end
         end
         C-->D
+        %%C--> | test text | D
         D-->E
+        %%D--> | test text | E
     end
 
     %% Now label and style the blocks
