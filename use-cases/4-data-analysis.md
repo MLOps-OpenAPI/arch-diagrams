@@ -79,7 +79,7 @@ graph LR;
 1. Data annotations/descriptions added
 2. Curated data validated against schema/rules
 3. Data transformations recorded as metadata *
-3. Data/metadata added to secure database *
+4. Data/metadata added to secure database *
     
 
 \* = required steps
