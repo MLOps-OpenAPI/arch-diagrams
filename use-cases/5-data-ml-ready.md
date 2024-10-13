@@ -1,18 +1,18 @@
-# Use Case 4: Data Analysis
+# Use Case 5: Data Analysis
 
 ## Description
 
-As a data scientist, I want my dataset in an understandable form so that I can perform analysis on it.
+As a ML engineer, I want my dataset prepared so that I can perform machine learning on it.
 
 ## Inputs
 
-Filtered, labeled data
+Curated data, ready for data analysis;
+Data curation process
 
 ## Output
 
-Curated, descriptive data (human-readable and understandable);
-metadata description of curation transforms for the input data.
-
+Curated data, ready for machine learning;
+Data curation description
 
 ```mermaid
 
@@ -22,7 +22,7 @@ metadata description of curation transforms for the input data.
 graph LR;
 
     %% Define the common flow items:
-    A--> | Data Filtering | B--> | Data Labeling | C
+    A--> | Data Filtering | B
     %%A--> B
     %%B-->C
     subgraph Pipeline ["**Pipeline**"]
@@ -32,38 +32,35 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                C 
+                B 
             end
             subgraph Events ["**Events**"]
-                D
+                C
             end
             subgraph Outputs ["**Outputs**"]
-                E
+                D
             end
         end
-        C-->D
+        B-->C
         %%C--> | test text | D
-        D-->E
+        C-->D
         %%D--> | test text | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Raw Data]
+    A[Filtered Data]
     style A fill:green
 
-    B[Filtered Data]
+    B[Curated Data, ready for data analysis; Data curation process]
     style B fill:green
 
-    C[Filtered, Labeled Data]
-    style C fill:green
+    C((Data Curation))
+    style C fill:orange
 
-    D((Data Curation))
-    style D fill:orange
-
-    E[Curated Data, ready for data analysis; Data curation description]
-    style E fill:blue
+    D[Curated Data, ready for machine learning; Data curation description]
+    style D fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
@@ -76,10 +73,9 @@ graph LR;
 
 ## Success path
 
-1. Data annotations/descriptions added
-2. Curated data validated against schema/rules
-3. Data transformations recorded as metadata *
-4. Data/metadata added to secure database *
+1. Curated data validated against schema/rules
+2. Data transformations recorded as metadata *
+3. Data/metadata added to secure database *
     
 
 \* = required steps
