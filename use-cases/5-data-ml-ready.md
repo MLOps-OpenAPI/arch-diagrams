@@ -1,4 +1,4 @@
-# Use Case 5: Data Analysis
+# Use Case 5: ML-ready data
 
 ## Description
 
