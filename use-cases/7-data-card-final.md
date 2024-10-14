@@ -67,17 +67,8 @@ graph LR;
 
 ## Success path
 
-1. Data distribution matches customer use case
-2. Data provenance established
-3. Label quality verified
-4. Data trends follow expected results
-5. Data trends are internally consistent
-6. Adequate explanation when data trends do not follow
-7. Metadata transforms match with data at each stage
+1. All data card entries filled 
 
 ## Exceptions/Errors
 
-1. Data distribution does not match customer use case
-2. Data provenance not established
-3. Labels do not match ground truth
-4. Unexplained data anomalies found
+1. One or more data card entries are unfilled
