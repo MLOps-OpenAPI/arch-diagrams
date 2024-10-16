@@ -1,16 +1,16 @@
-# Use Case 18: Model Downloads
+# Use Case 17: Model Marketplace
 
 ## Description
 
-As an MLOps Engineer I want to download secure models with knowledge of the data the model was trained on as well as details of the model.
+As a Data Scientist I want to publish my models in a secure way so that other authorized users can download and use them.
 
 ## Inputs
 
-Selected Model Marketplace Entry
+Data card, model card
 
 ## Output
 
-Containerized model, Model card, Data card
+Model marketplace entry
 
 ```mermaid
 
@@ -47,13 +47,13 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Selected Model Marketplace Entry]
+    A[Data card, model card]
     style A fill:green
 
-    B((Model downloaded))
+    B((Model advertised))
     style B fill:orange
 
-    C[Containerized model, Model card, Data card]
+    C[Model marketplace entry]
     style C fill:blue
 
     %% Remove unnecessary box outlines
@@ -67,8 +67,9 @@ graph LR;
 
 ## Success path
 
-1. A valid model, model card, and data card are downloaded.
+1. The model is uploaded to the marketplace and is available for authorized users to download.
 
 ## Exceptions/Errors
 
-1. Model, model card, or data card not fully downloaded.
+1. The model is not uploaded successfully.
+2. Unauthorized users have access to download the model.
