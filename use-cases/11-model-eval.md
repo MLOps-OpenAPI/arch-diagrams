@@ -1,19 +1,18 @@
-# Use Case 10: Model test and evaluation
+# Use Case 11: Model evaluation
 
 ## Description
 
-As a test engineer, I want models evaluated so that I can have confidence in their results.
+As a test engineer, I want tests evaluated so that I can provide evidence that model results meet user requirements.
 
 ## Inputs
 
-Trained model;
-Test strategy;
-Test plan;
-Test data
+Evaluation strategy;
+Test results
 
 ## Output
 
-Model test report
+Evaluation results;
+Plan of Actions and Milestones entries
 
 ```mermaid
 
@@ -53,10 +52,10 @@ graph LR;
     A[Trained model; Test strategy; Test plan; Test data]
     style A fill:green
 
-    B((Model testing))
+    B((Model evaluated))
     style B fill:orange
 
-    C[Model test report]
+    C[Evaluation results; POA&M entries]
     style C fill:blue
 
     %% Remove unnecessary box outlines
@@ -70,14 +69,10 @@ graph LR;
 
 ## Success path
 
-1. Test report generated
-2. Data/metadata added to secure database
+1. Evaluation results generated
+2. Security/vulnerability results generated
     
 ## Exceptions/Errors
 
-1. One or more test cases not executed
-2. Test data missing
-3. Data could not be added to database
-4. Metadata not recorded
-5. Database not accessible
-6. Test report incomplete
+1. Evaluation incomplete
+2. Container not accessible
