@@ -28,25 +28,25 @@ flowchart LR
         %% Add an empty node to overcome some formatting issues
         subgraph dataPipeline["***Data Pipeline***"]
             %% Add the rest of the nodes
-            subgraph Data Intake ["**Data Intake**"]
+            subgraph Data Intake
                 A 
             end
-            subgraph Data Filtering ["**Data Filtering**"]
+            subgraph Data Filtering 
                 B
             end
-            subgraph Data Labeling ["**Data Labeling**"]
+            subgraph Data Labeling 
                 C
             end
-            subgraph Data Analysis ["**Data Analysis**"]
+            subgraph Data Analysis 
                 D
             end
-            subgraph Data ML Ready ["**Data ML Ready**"]
+            subgraph Data ML Ready 
                 E
             end
-            subgraph Data Test/Eval ["**Data Test/Eval**"]
+            subgraph Data Test/Eval 
                 F
             end
-            subgraph Data Card Final ["**Data Card Final**"]
+            subgraph Data Card Final
                 G
             end
         end
@@ -63,25 +63,25 @@ flowchart LR
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Raw data; Data intake form]
+    A[Data Intake]
     style A fill:green
 
-    B[Data Intake]
+    B[Data Filtering]
     style B fill:green
 
-    C[Raw data; Naming standard; Data card]
+    C[Data Labeling]
     style C fill:green
 
-    D[Raw data; Naming standard; Data card]
+    D[Data Analysis]
     style D fill:green
 
-    E[Raw data; Naming standard; Data card]
+    E[Data ML Ready]
     style E fill:green
 
-    F[Raw data; Naming standard; Data card]
+    F[Data Test/Eval]
     style F fill:green
 
-    G[Raw data; Naming standard; Data card]
+    G[Data Card Final]
     style G fill:green
 
     %% Remove unnecessary box outlines
