@@ -24,9 +24,9 @@ flowchart LR
 
     %% Define the common flow items:
     subgraph Pipeline ["**MLOps Pipeline**"]
-        direction LR
+        
         %% Add an empty node to overcome some formatting issues
-        subgraph invisibleSpace1["***Data Pipeline***"]
+        subgraph dataPipeline["***Data Pipeline***"]
             %% Add the rest of the nodes
             subgraph Data Intake ["**Data Intake**"]
                 A 
@@ -95,7 +95,7 @@ flowchart LR
     subgraph Pipeline ["**Model Pipeline**"]
         direction LR
         %% Add an empty node to overcome some formatting issues
-        subgraph invisibleSpace2["***Model Pipeline***<br/>"]
+        subgraph modelPipeline["***Model Pipeline***<br/>"]
             subgraph Model Eval ["**Model Eval**"]
                 H
             end
@@ -137,7 +137,7 @@ flowchart LR
             end
         end
         
-        G-->H
+        %%G-->H
         H-->I
         I-->J
         J-->K
@@ -150,6 +150,8 @@ flowchart LR
         Q-->R
         R-->S
         S-->T
+
+        dataPipeline-->modelPipeline
     end
 
     %% Now label and style the blocks
