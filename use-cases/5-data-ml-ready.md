@@ -2,12 +2,12 @@
 
 ## Description
 
-As a ML engineer, I want my dataset prepared so that I can perform machine learning on it.
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#mlops-engineer'>ML engineer</a> and <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-scientists'>data scientist</a>, I want my dataset prepared so that I can perform machine learning on it.
 
 ## Inputs
 
 Curated data, ready for data analysis;
-Data curation process
+Data curation process; Model type
 
 ## Output
 
@@ -37,14 +37,20 @@ graph LR;
             subgraph Events ["**Events**"]
                 C
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success**"]
                 D
+            end
+            subgraph End ["**End**"]
+                E
+            end
+            subgraph Outputs ["**Outputs**"]
+                F
             end
         end
         B-->C
-        %%C--> | test text | D
         C-->D
-        %%D--> | test text | E
+        D--> | No | E
+        D--> | Yes | F
     end
 
     %% Now label and style the blocks
@@ -53,27 +59,34 @@ graph LR;
     A[Filtered Data]
     style A fill:green
 
-    B[Curated Data, ready for data analysis; Data curation process]
+    B[Curated Data, ready for data analysis; Data curation process, Model type]
     style B fill:green
 
     C((Data Curation))
     style C fill:orange
 
-    D[Curated Data, ready for machine learning; Data curation description]
-    style D fill:blue
+    D{Valid success path?}
+    style D fill:yellow
+
+    E((Exceptions/Errors))
+    style E fill:red
+
+    F[Curated Data, ready for machine learning; Data curation description]
+    style F fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
-
+    style End stroke-width:0
+    style Success stroke-width:0
 ```
 
 
 ## Success path
 
-1. Curated data validated against schema/rules
+1. Curated data matches up against model inputs
 2. Data transformations recorded as metadata *
 3. Data/metadata added to secure database *
     
