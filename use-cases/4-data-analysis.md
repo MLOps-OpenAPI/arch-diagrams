@@ -49,8 +49,8 @@ graph LR;
         end
         C-->D
         D-->E
-        E--> | Yes | F
-        E--> | No | G
+        E--> | No | F
+        E--> | Yes | G
     end
 
     %% Now label and style the blocks
