@@ -2,7 +2,7 @@
 
 ## Description
 
-As a data scientist, I want my dataset in an understandable form so that I can perform analysis on it.
+As a  <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data%20scientists'>data scientist</a> or <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data%20engineers'>data engineer</a>, I want my dataset in an understandable form so that I can perform analysis on it.
 
 ## Inputs
 
@@ -12,7 +12,7 @@ Filtered, labeled data
 
 Curated, descriptive data (human-readable and understandable);
 metadata description of curation transforms for the input data.
-
+TODO: Figure out how to represent required metadata.
 
 ```mermaid
 
@@ -37,14 +37,20 @@ graph LR;
             subgraph Events ["**Events**"]
                 D
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success**"]
                 E
+            end
+            subgraph End ["**End**"]
+                F
+            end
+            subgraph Outputs ["**Outputs**"]
+                G
             end
         end
         C-->D
-        %%C--> | test text | D
         D-->E
-        %%D--> | test text | E
+        E--> | Yes | F
+        E--> | No | G
     end
 
     %% Now label and style the blocks
@@ -62,14 +68,22 @@ graph LR;
     D((Data Curation))
     style D fill:orange
 
-    E[Curated Data, ready for data analysis; Data curation description]
-    style E fill:blue
+    E{Valid success path?}
+    style E fill:yellow
+
+    F((Exceptions/Errors))
+    style F fill:red
+
+    G[Curated Data, ready for data analysis; Data curation description]
+    style G fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
 
 ```
 
@@ -79,7 +93,7 @@ graph LR;
 1. Data annotations/descriptions added
 2. Curated data validated against schema/rules
 3. Data transformations recorded as metadata *
-4. Data/metadata added to secure database *
+4. Metadata added to secure database *
     
 
 \* = required steps
