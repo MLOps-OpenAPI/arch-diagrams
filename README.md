@@ -9,7 +9,8 @@ Below is a common set of persona definitions that can be used to build out the A
 
     Build and manage deployment pipelines, CI/CD, and monitoring for ML models, ensuring automation and scalability across the model lifecycle.
 
-#### Data Scientists
+[[datascientists]]
+**Data Scientists**
 
     Develop, test, and refine predictive models, focusing on model accuracy, experimentation, and alignment with business objectives.
 
