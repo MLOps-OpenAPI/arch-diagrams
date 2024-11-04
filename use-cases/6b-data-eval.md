@@ -1,16 +1,21 @@
-# Use Case 6: Data Test and Evaluation
+# Use Case 6: Data Evaluation
 
 ## Description
 
-As a data engineer, I want my curated datasets tested and evaluated so that I can have confidence in the data.
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-engineer'>data engineer</a>, I want my curated datasets evaluated so that I can have confidence in the data.
 
 ## Inputs
 
-Data card; curated data; metadata for transforms; ground truth labels if available
+* Data card*
+* Curated data*
+* Metadata for transforms*
+* Ground truth labels
+
+\* = required inputs
 
 ## Output
 
-Data test report
+Data test report 
 
 ```mermaid
 
@@ -34,14 +39,20 @@ graph LR;
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success**"]
                 C
+            end
+            subgraph End ["**End**"]
+                D
+            end
+            subgraph Outputs ["**Outputs**"]
+                E
             end
         end
         A-->B
-        %%C--> | test text | D
         B-->C
-        %%D--> | test text | E
+        C--> | No | D
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
@@ -50,18 +61,25 @@ graph LR;
     A[Data card; curated data; metadata for transforms; ground truth labels if available]
     style A fill:green
 
-    B((Data Test and Evaluation))
+    B((Data Evaluation))
     style B fill:orange
 
-    C[Data test report]
-    style C fill:blue
+    C{Valid success path?}
+    style C fill:yellow
+
+    D((Exceptions/Errors))
+    style D fill:red
+
+    E[Data test report]
+    style E fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
-
+    style End stroke-width:0
+    style Success stroke-width:0
 ```
 
 
