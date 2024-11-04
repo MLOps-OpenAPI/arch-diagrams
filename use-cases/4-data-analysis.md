@@ -2,7 +2,7 @@
 
 ## Description
 
-As a  <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#datascientists'>data scientist</a> or <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data%20engineers'>data engineer</a>, I want my dataset in an understandable form so that I can perform analysis on it.
+As a  <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-scientists'>data scientist</a> or <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-engineers'>data engineer</a>, I want my dataset in an understandable form so that I can perform analysis on it.
 
 ## Inputs
 
