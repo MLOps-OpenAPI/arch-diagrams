@@ -2,17 +2,19 @@
 
 ## Description
 
-As a test engineer, I want tests evaluated so that I can provide evidence that model results meet user requirements.
+As a Data Scientist, I want tests evaluated so that I can provide evidence that model results meet user requirements.
 
 ## Inputs
 
+Trained model;
 Evaluation strategy;
-Test results
+Test plan;
+Test data
 
-## Output
+## Success
 
 Evaluation results;
-Plan of Actions and Milestones entries
+Model Remediation Plan
 
 ```mermaid
 
@@ -49,13 +51,13 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Trained model; Test strategy; Test plan; Test data]
+    A[Trained model; Evaluation strategy; Test plan; Test data]
     style A fill:green
 
     B((Model evaluated))
-    style B fill:orange
+    style B fill:purple
 
-    C[Evaluation results; POA&M entries]
+    C[Evaluation results; Model Remediation Plan]
     style C fill:blue
 
     %% Remove unnecessary box outlines
@@ -70,9 +72,9 @@ graph LR;
 ## Success path
 
 1. Evaluation results generated
-2. Security/vulnerability results generated
+2. Model Remediation Plan generated
     
 ## Exceptions/Errors
 
 1. Evaluation incomplete
-2. Container not accessible
+2. Model Remediation Plan could not be determined
