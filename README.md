@@ -11,7 +11,7 @@ Below is a common set of persona definitions that can be used to build out the A
 
 #### Data Scientists
 
-    Develop, test, and refine predictive models, focusing on model accuracy, experimentation, and alignment with business objectives.
+    Create value from complex data through statistical analysis and machine learning, rigorously evaluating model performance against business requirements, and iteratively improving solutions to ensure both technical excellence and real-world impact.
 
 #### Data Engineers
 
