@@ -2,11 +2,13 @@
 
 ## Description
 
-As a data manager, I want my data card in a final form so that the dataset quality is communicated to customers.
+As a Product Manager, I want my [data card](https://sites.research.google/datacardsplaybook/) in a final form so that the dataset quality is communicated to customers.
 
 ## Inputs
 
-Draft data card; data curation description; data test report
+Draft data card; data curation description; data evaluation report; data handling guidance*
+
+\* = optional input
 
 ## Output
 
@@ -26,41 +28,53 @@ graph LR;
         
         %% Add an empty node to overcome some formatting issues
         subgraph invisibleSpace["<br/>"]
-
-            %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success**"]
                 C
+            end
+            subgraph End ["**End**"]
+                D
+            end
+            subgraph Outputs ["**Outputs**"]
+                E
             end
         end
         A-->B
-        %%C--> | test text | D
         B-->C
-        %%D--> | test text | E
+        C--> | No | D
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Draft data card; data curation description; data test report]
+    A[Draft data card; data curation description; data test report; data handling guidance if available]
     style A fill:green
 
     B((Data card finalized))
     style B fill:orange
 
+    C{Valid success path?}
+    style C fill:yellow
+
+    D((Exceptions/Errors))
+    style D fill:red
+
     C[Final data card]
-    style C fill:blue
+    style E fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
 
 ```
 

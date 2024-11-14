@@ -6,12 +6,12 @@ As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md
 
 ## Inputs
 
-* Data card*
-* Curated data*
-* Metadata for transforms*
-* Ground truth labels
+* Draft data card
+* Curated data
+* Metadata for transforms
+* Ground truth labels*
 
-\* = required inputs
+\* = optional input
 
 ## Output
 
@@ -58,7 +58,7 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Data card; curated data; metadata for transforms; ground truth labels if available]
+    A[Draft data card; curated data; metadata for transforms; ground truth labels if available]
     style A fill:green
 
     B((Data Test))

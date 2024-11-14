@@ -13,7 +13,7 @@ Data intake form
 
 Raw data;
 Naming standard;
-Data card
+Draft data card
 
 ```mermaid
 
@@ -54,7 +54,7 @@ graph LR;
     B((Data Intake))
     style B fill:orange
 
-    C[Raw data; Naming standard; Data card]
+    C[Raw data; Naming standard; Draft data card]
     style C fill:blue
 
     %% Remove unnecessary box outlines
@@ -68,7 +68,7 @@ graph LR;
 ## Success path
 
 1. Data intake form contents validated
-2. Initial data card created
+2. Draft data card created
 3. Data intake form contents moved into data card
 4. Raw data filename defined from data card contents + naming standard
 5. Raw data with correct filename uploaded to data environment
