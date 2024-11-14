@@ -1,12 +1,12 @@
-# Use Case 13: Hardened model containers
+# Use Case 13: Container Security Scan
 
 ## Description
 
-As a security engineer, I want model containers hardened so that I can reduce vulnerabilities to make the containers resilient against security threats.
+As a Security Officer or MLOps Engineer, I want model containers hardened so that I can reduce vulnerabilities to make the containers resilient against security threats.
 
 ## Inputs
 
-Hardening standard;
+Security standard;
 Containerized model
 
 ## Output
@@ -35,20 +35,26 @@ graph LR;
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success**"]
                 C
+            end
+            subgraph End ["**End**"]
+                D
+            end
+            subgraph Outputs ["**Outputs**"]
+                E
             end
         end
         A-->B
-        %%C--> | test text | D
         B-->C
-        %%D--> | test text | E
+        C--> | No | D
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Hardening standard; containerized model]
+    A[Security standard; containerized model]
     style A fill:green
 
     B((Container hardened))
@@ -57,12 +63,22 @@ graph LR;
     C[Hardened model container]
     style C fill:blue
 
+    C{Valid success path?}
+    style C fill:yellow
+
+    D((Exceptions/Errors))
+    style D fill:red
+
+    E[Hardened model container]
+    style E fill:blue
+
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
-
+    style End stroke-width:0
+    style Success stroke-width:0
 ```
 
 
@@ -72,4 +88,4 @@ graph LR;
     
 ## Exceptions/Errors
 
-1. Hardening incomplete
+1. Scan failed
