@@ -2,7 +2,7 @@
 
 ## Description
 
-As a Security Officer or MLOps Engineer, I want model containers hardened so that I can reduce vulnerabilities to make the containers resilient against security threats.
+As a Security Officer or ML Engineer, I want model containers hardened so that I can reduce vulnerabilities to make the containers resilient against security threats.
 
 ## Inputs
 
