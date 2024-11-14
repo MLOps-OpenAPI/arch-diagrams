@@ -38,14 +38,20 @@ graph LR;
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success**"]
                 C
+            end
+            subgraph End ["**End**"]
+                D
+            end
+            subgraph Outputs ["**Outputs**"]
+                E
             end
         end
         A-->B
-        %%C--> | test text | D
         B-->C
-        %%D--> | test text | E
+        C--> | No | D
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
@@ -55,16 +61,24 @@ graph LR;
     style A fill:green
 
     B((Model evaluated))
-    style B fill:purple
+    style B fill:orange
 
-    C[Evaluation results; Model Remediation Plan]
-    style C fill:blue
+    C{Valid success path?}
+    style C fill:yellow
+
+    D((Exceptions/Errors))
+    style D fill:red
+
+    E[Evaluation results; Model Remediation Plan]
+    style E fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
 
 ```
 
