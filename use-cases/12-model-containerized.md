@@ -2,11 +2,11 @@
 
 ## Description
 
-As a DevOps engineer, I want models packaged in a container so that I can ensure consistent and isolated execution across different computing environments.
+As a Data Scientist or ML Engineer, I want models packaged in a container so that I can ensure consistent and isolated execution across different computing environments.
 
 ## Inputs
 
-Containerization standard;
+OCI containerization standard;
 Trained model
 
 ## Output
@@ -35,33 +35,47 @@ graph LR;
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success**"]
                 C
+            end
+            subgraph End ["**End**"]
+                D
+            end
+            subgraph Outputs ["**Outputs**"]
+                E
             end
         end
         A-->B
-        %%C--> | test text | D
         B-->C
-        %%D--> | test text | E
+        C--> | No | D
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Containerization standard; trained model]
+    A[OCI containerization standard; trained model]
     style A fill:green
 
     B((Model containerized))
     style B fill:orange
 
-    C[Containerized model]
-    style C fill:blue
+    C{Valid success path?}
+    style C fill:yellow
+
+    D((Exceptions/Errors))
+    style D fill:red
+
+    E[Containerized model]
+    style E fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
 
 ```
 
@@ -78,3 +92,4 @@ graph LR;
 
 1. Dependencies not identified
 2. Containers not generated
+3. Cannot open necessary ports
