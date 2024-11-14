@@ -11,7 +11,7 @@ Filtered, labeled data
 ## Output
 
 Curated, descriptive data (human-readable and understandable);
-metadata description of curation transforms for the input data.
+Metadata description of curation transforms for the input data.
 TODO: Figure out how to represent required metadata.
 
 ```mermaid
