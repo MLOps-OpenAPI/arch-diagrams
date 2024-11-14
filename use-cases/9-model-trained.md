@@ -2,11 +2,11 @@
 
 ## Description
 
-As a ML engineer, I want my model trained so that I can make predictions on new unseen data.
+As a ML engineer or a Data Scientist, I want my model trained so that I can make predictions on new unseen data.
 
 ## Inputs
 
-Trainable data from curated ML-ready dataset; ML algorithm hyperparameters
+Trainable data from curated ML-ready dataset; ML algorithm hyperparameters in JSON format
 
 ## Output
 
@@ -28,40 +28,54 @@ graph LR;
         %% Add an empty node to overcome some formatting issues
         subgraph invisibleSpace["<br/>"]
 
-            %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success**"]
                 C
+            end
+            subgraph End ["**End**"]
+                D
+            end
+            subgraph Outputs ["**Outputs**"]
+                E
             end
         end
         A-->B
-        %%C--> | test text | D
         B-->C
-        %%D--> | test text | E
+        C--> | No | D
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Trainable data from curated ML-ready dataset; ML algorithm hyperparameters]
+    A[Trainable data from curated ML-ready dataset; ML algorithm hyperparameters in JSON format]
     style A fill:green
 
     B((Model training))
     style B fill:orange
 
-    C[Trained model; model weights]
-    style C fill:blue
+    C{Valid success path?}
+    style C fill:yellow
 
+    D((Exceptions/Errors))
+    style D fill:red
+
+    E[Trained model; model weights]
+    style E fill:blue
+    
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
+
 
 ```
 
@@ -75,6 +89,7 @@ graph LR;
 
 ## Exceptions/Errors
 
-1. Metadata not recorded
-2. Training data not model-compatible
-3. Artifacts not stored
+1. Incompatible hyperparameter format
+2. Metadata not recorded
+3. Training data not model-compatible
+4. Artifacts not stored
