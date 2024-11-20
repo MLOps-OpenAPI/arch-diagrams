@@ -24,30 +24,38 @@ flowchart LR
 
     %% Define the common flow items:
     subgraph Pipeline ["**MLOps Pipeline**"]
-        direction LR
+        direction TB
         %% Add an empty node to overcome some formatting issues
         subgraph dataPipeline["***Data Pipeline***"]
+            direction LR
             %% Add the rest of the nodes
             subgraph Data Intake [<br/>]
-                A 
+                A[Data Intake]
+                style A fill:green 
             end
-            subgraph Data Filtering 
-                B
+            subgraph Data Filtering [<br/>]
+                B[Data Filtering]
+                style B fill:green
             end
-            subgraph Data Labeling 
-                C
+            subgraph Data Labeling [<br/>]
+                C[Data Labeling]
+                style C fill:green
             end
-            subgraph Data Analysis 
-                D
+            subgraph Data Analysis [<br/>]
+                D[Data Analysis]
+                style D fill:green
             end
-            subgraph Data ML Ready 
-                E
+            subgraph Data ML Ready [<br/>]
+                E[Data ML Ready]
+                style E fill:green
             end
-            subgraph Data Test/Eval 
-                F
+            subgraph Data Test/Eval [<br/>]
+                F[Data Test/Eval]
+                style F fill:green
             end
-            subgraph dataCardFinal ["Data Card Final"]
-                G
+            subgraph dataCardFinal [<br/>]
+                G[Data Card Final]
+                style G fill:green
             end
         end
 
@@ -63,27 +71,6 @@ flowchart LR
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Data Intake]
-    style A fill:green
-
-    B[Data Filtering]
-    style B fill:green
-
-    C[Data Labeling]
-    style C fill:green
-
-    D[Data Analysis]
-    style D fill:green
-
-    E[Data ML Ready]
-    style E fill:green
-
-    F[Data Test/Eval]
-    style F fill:green
-
-    G[Data Card Final]
-    style G fill:green
-
     %% Remove unnecessary box outlines
     %%style invisibleSpace1 stroke-width:0
     %% style Data Intake stroke-width:0
@@ -96,44 +83,42 @@ flowchart LR
         direction TB
         %% Add an empty node to overcome some formatting issues
         subgraph modelPipeline["***Model Pipeline***<br/>"]
-            subgraph modelEval ["**Model Eval**"]
-                H
+            direction LR
+            subgraph Model Eval [<br/>]
+                H[Model Eval]
+                style H fill:green
             end
-            subgraph Model Trained ["**Model Trained**"]
-                I
+            subgraph Model Trained [<br/>]
+                I[Model Trained]
+                style I fill:green
             end
-            subgraph Model Test ["**Model Test**"]
-                J
+            subgraph Model Test [<br/>]
+                J[Model Test]
+                style J fill:green
             end
-            subgraph Model Containerized ["**Model Containerized**"]
-                K
+            subgraph Model Containerized [<br/>]
+                K[Model Containerized]
+                style K fill:green
             end
-            subgraph Container Hardened ["**Container Hardened**"]
-                L
+            subgraph Container Hardened [<br/>]
+                L[Model Hardened]
+                style L fill:green
             end
-            subgraph Risk Assessment ["**Risk Assessment**"]
-                M
+            subgraph Risk Assessment [<br/>]
+                M[Risk Assessment]
+                style M fill:green
             end
-            subgraph Model Card Created ["**Model Card Created**"]
-                N
+            subgraph Model Card Created [<br/>]
+                N[Model Card Created]
+                style N fill:green
             end
-            subgraph Model Card ["**Model Card**"]
-                O
+            subgraph Model Card [<br/>]
+                O[Model Card]
+                style O fill:green
             end
-            subgraph Model Marketplace ["**Model Marketplace**"]
-                P
-            end
-            subgraph Model Downloads ["**Model Downloads**"]
-                Q
-            end
-            subgraph Model Deployment ["**Model Deployment**"]
-                R
-            end
-            subgraph Model Consumed ["**Model Consumed**"]
-                S
-            end
-            subgraph Model Monitoring ["**Model Monitoring**"]
-                T
+            subgraph Model Marketplace [<br/>]
+                P[Model Marketplace]
+                style P fill:green
             end
         end
         
@@ -146,10 +131,6 @@ flowchart LR
         M-->N
         N-->O
         O-->P
-        P-->Q
-        Q-->R
-        R-->S
-        S-->T
 
         %%dataCardFinal-->modelEval
         dataPipeline-->modelPipeline
@@ -158,44 +139,47 @@ flowchart LR
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    H[Raw data; Naming standard; Data card]
-    style H fill:green
+    %% Remove unnecessary box outlines
+    %%style invisibleSpace2 stroke-width:0
+    %% style Inputs stroke-width:0
+    %%style Events stroke-width:0
+    %%style Outputs stroke-width:0
 
-    I[Raw data; Naming standard; Data card]
-    style I fill:green
+    %% Define the common flow items:
+    subgraph Pipeline ["**Model Deployment Pipeline**"]
+        direction TB
+        %% Add an empty node to overcome some formatting issues
+        subgraph modelDeploymentPipeline["***Model Deployment Pipeline***<br/>"]
+            direction LR
+            subgraph Model Downloads [<br/>]
+                Q[Model Downloads]
+                style Q fill:green
+            end
+            subgraph Model Deployment [<br/>]
+                R[Model Deployment]
+                style R fill:green
+            end
+            subgraph Model Consumed [<br/>]
+                S[Model Consumed]
+                style S fill:green
+            end
+            subgraph Model Monitoring [<br/>]
+                T[Model Monitoring]
+                style T fill:green
+            end
+        end
+        
+        %%G-->H
+        Q-->R
+        R-->S
+        S-->T
 
-    J[Raw data; Naming standard; Data card]
-    style J fill:green
+        %%dataCardFinal-->modelEval
+        modelPipeline-->modelDeploymentPipeline
+    end
 
-    K[Raw data; Naming standard; Data card]
-    style K fill:green
-
-    L[Raw data; Naming standard; Data card]
-    style L fill:green
-
-    M[Raw data; Naming standard; Data card]
-    style M fill:green
-
-    N[Raw data; Naming standard; Data card]
-    style N fill:green
-
-    O[Raw data; Naming standard; Data card]
-    style O fill:green
-
-    P[Raw data; Naming standard; Data card]
-    style P fill:green
-
-    Q[Raw data; Naming standard; Data card]
-    style Q fill:green
-
-    R[Raw data; Naming standard; Data card]
-    style R fill:green
-
-    S[Raw data; Naming standard; Data card]
-    style S fill:green
-
-    T[Raw data; Naming standard; Data card]
-    style T fill:green
+    %% Now label and style the blocks
+    %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
     %% Remove unnecessary box outlines
     %%style invisibleSpace2 stroke-width:0
