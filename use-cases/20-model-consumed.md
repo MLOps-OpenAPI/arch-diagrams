@@ -1,14 +1,18 @@
-# Use Case 21: Model Consumed
+# Use Case 20: Model Consumed
 
 ## Description
 
-* As an Application Developer I want to integrate or test model inference endpoints with amy application.
-* As a Data Scientist I want to test my model inference endpoints and share the inference endpoint URL with my team.
-* As an MLOps Engineer I want to unit test and performance test my model inference endpoints.
+* As an <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ai-engineers--intelligent-app-developers'>AI Engineers/Intelligent App Developers</a> I want to integrate or test model inference endpoints with any application.
+* As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a> I want to test my model inference endpoints and share the inference endpoint URL with my team.
+* As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#mlops-engineers">MLOps Engineer</a> I want to unit test and performance test my model inference endpoints.
+* As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#quality-assurance-qa-engineers">Quality Assurance (QA) Engineer</a> I want to test models for stability and performance.
+* As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#security--compliance-officers">Security & Compliance Officers</a> I want to make sure the model adheres to security protocols.
 
 ## Inputs
 
-API spec, model API endpoint
+* API spec
+* Model API endpoint
+* Deployment document
 
 ## Output
 
@@ -30,33 +34,61 @@ graph LR;
         subgraph invisibleSpace["<br/>"]
 
             %% Add the rest of the nodes
-            subgraph Inputs ["**Inputs**"]
-                A
+            subgraph Input1 ["**Input**"]
+                A1
+            end
+            subgraph Input2 ["**Input**"]
+                A2
+            end
+            subgraph Input3 ["**Input**"]
+                A3
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
+            subgraph End ["**End**"]
+                D
+            end
+            subgraph Outputs ["**Outputs**"]
+                E
+            end
         end
-        A-->B
+        A1-->B
+        A2-->B
+        A3-->B
         %%C--> | test text | D
         B-->C
-        %%D--> | test text | E
+        C--> | No | D
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[API spec, model API endpoint]
-    style A fill:green
+    A1[API spec]
+    style A1 fill:green
+
+    A2[Model API endpoint]
+    style A2 fill:green
+
+    A3[Deployment Document]
+    style A3 fill:green
+
 
     B((Model consumed))
     style B fill:orange
 
-    C[Model response]
-    style C fill:blue
+    C{Valid?}
+    style C fill:yellow
+
+    D((Exceptions/Errors))
+    style D fill:red
+
+    E[Model response]
+    style E fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
