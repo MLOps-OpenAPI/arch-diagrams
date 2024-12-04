@@ -44,3 +44,6 @@ Below is a common set of persona definitions that can be used to build out the A
 #### Product Managers
 
     Guide model development from ideation through deployment, prioritize features based on user and business needs, and ensure alignment between technical teams and business objectives.
+
+#### 3rd Party Tester
+    Reviews the production deployment and provides feedback on the quality of the service.
