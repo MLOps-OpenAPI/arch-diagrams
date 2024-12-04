@@ -5,7 +5,7 @@
 
 Below is a common set of persona definitions that can be used to build out the API specification.
 
-#### MLOps Engineers
+#### ML Engineers
 
     Build and manage deployment pipelines, CI/CD, and monitoring for ML models, ensuring automation and scalability across the model lifecycle.
 
