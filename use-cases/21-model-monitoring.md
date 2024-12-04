@@ -2,7 +2,7 @@
 
 ## Description
 
-As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">Product Manager</a>, or a 3rd party I want to monitor AI models to ensure their accuracy, reliability, and value. Monitoring for Model drift, data quality, bias and fairness, security, and compliance should be considered for implementation when deploying models. 
+As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">Product Manager</a>, or a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#3rd-party-tester">3rd party tester</a> I want to monitor AI models to ensure their accuracy, reliability, and value. Monitoring for Model drift, data quality, bias and fairness, security, and compliance should be considered for implementation when deploying models. 
 
 Models may be continuously monitored, resources may be limited and pruning/filtering could be necessary.
 
