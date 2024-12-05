@@ -2,16 +2,16 @@
 
 ## Description
 
-As a user, I want to understand enough of the ML model methodology and evaluation so that I can trust its outputs.
+* As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, or <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ai-engineers--intelligent-app-developers'>AI Engineers/Intelligent App Developers</a>, I want to understand enough of the ML model methodology and evaluation so that I can trust its outputs.
 
 ## Inputs
 
-Evaluation results;
-Model info;
-Model summary of Assumptions, Limitations and Errors/Exceptions;
-Model test results;
-Risk assessment results;
-TORC score
+* Evaluation results
+* Model info (required)
+* Model SALE (Summary of Assumptions, Limitations and Errors/Exceptions)
+* Model test results
+* Risk assessment results
+* TORC score (optional)
 
 ## Output
 
@@ -34,32 +34,79 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
+            end
+            subgraph Inputs ["**Inputs**"]
+                A3
+            end
+            subgraph Inputs ["**Inputs**"]
+                A4
+            end
+            subgraph Inputs ["**Inputs**"]
+                A5
+            end
+            subgraph Inputs ["**Inputs**"]
+                A6
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
+            subgraph End ["**End**"]
+                D
+            end
+            subgraph Outputs ["**Outputs**"]
+                E
+            end
         end
-        A-->B
-        %%C--> | test text | D
+        A1-->B
+        A2-->B
+        A3-->B
+        A4-->B
+        A5-->B
+        A6-->B
+        C--> | No | D
         B-->C
-        %%D--> | test text | E
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Evaluation results; Model info; Model summary of Assumptions, Limitations and Errors/Exceptions; Model test results; Risk assessment results; TORC score]
-    style A fill:green
+    A1[Evaluation results]
+    style A1 fill:green
+
+    A2[Model info]
+    style A2 fill:green
+
+    A3[Model SALE]
+    style A3 fill:green
+
+    A4[Model test results]
+    style A4 fill:green
+
+    A5[Risk assessment results]
+    style A5 fill:green
+
+    A6[TORC score]
+    style A6 fill:green
 
     B((Model card created))
     style B fill:orange
 
-    C[Model card]
-    style C fill:blue
+    C{Valid?}
+    style C fill:yellow
+
+    D((Exceptions/Errors))
+    style D fill:red
+
+    E[Model card]
+    style E fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
