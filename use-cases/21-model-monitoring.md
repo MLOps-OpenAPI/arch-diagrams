@@ -106,6 +106,8 @@ graph LR;
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
 
 ```
