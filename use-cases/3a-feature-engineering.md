@@ -13,7 +13,7 @@ I want to extract, select, and transform the most relevant data into features fr
 
 ## Output
 
-* Feature derived from data
+* Feature(s) derived from data
 
 ```mermaid
 
@@ -73,7 +73,7 @@ graph LR;
     D((<b>Exceptions/Errors</b>))
     style D fill:#e05e65
 
-    E[<b>Feature derived from data</b>]
+    E[<b>Feature(s) derived from data</b>]
     style E fill:#75a4f0
 
     %% Remove unnecessary box outlines
