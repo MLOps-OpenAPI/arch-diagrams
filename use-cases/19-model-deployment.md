@@ -2,15 +2,16 @@
 
 ## Description
 
-As an MLOps Engineer I want to deploy multiple models in a scalable and safe way.
+* As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-manager">Product Manager</a>, <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ai-engineers--intelligent-app-developers'>AI Engineers/Intelligent App Developers</a>, or <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#security--compliance-officers">Security & Compliance Officers</a> I want to deploy models in a scalable and safe way.
 
 ## Inputs
 
-Containerized model, inference engine
+* Containerized model (artifact or path)
+* inference engine
 
 ## Output
 
-Integrated/Served model
+Inference endpoint
 
 ```mermaid
 
@@ -29,32 +30,51 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
+            subgraph End ["**End**"]
+                D
+            end
+            subgraph Outputs ["**Outputs**"]
+                E
+            end
         end
-        A-->B
-        %%C--> | test text | D
+        A1-->B
+        A2-->B
+        C--> | No | D
         B-->C
-        %%D--> | test text | E
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Containerized model, inference engine]
-    style A fill:green
+    A1[Containerized model]
+    style A1 fill:green
+
+    A2[Inference engine]
+    style A2 fill:green
 
     B((Model deployed))
     style B fill:orange
 
-    C[Integrated/Served model]
-    style C fill:blue
+    C{Valid?}
+    style C fill:yellow
+
+    D((Exceptions/Errors))
+    style D fill:red
+
+    E[Inference endpoint]
+    style E fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
@@ -68,7 +88,9 @@ graph LR;
 ## Success path
 
 1. A model is deployed
+2. Inference endpoint available
 
 ## Exceptions/Errors
 
 1. Models not deployed
+2. Inference endpoint not available
