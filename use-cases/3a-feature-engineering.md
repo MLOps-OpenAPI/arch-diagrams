@@ -2,7 +2,9 @@
 
 ## Description
 
-As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-scientists'>data scientist</a> or <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-engineers'>data engineer</a> I want to extract, transform, and select the most relevant data from my datasets to produce high-quality ML models.
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-scientists'>data scientist</a> or 
+<a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-engineers'>data engineer</a> 
+I want to extract, select, and transform the most relevant data into features from my datasets to produce high-quality ML models. 
 
 ## Inputs
 
@@ -11,7 +13,7 @@ As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md
 
 ## Output
 
-* Features data
+* Feature(s) derived from data
 
 ```mermaid
 
@@ -71,7 +73,7 @@ graph LR;
     D((<b>Exceptions/Errors</b>))
     style D fill:#e05e65
 
-    E[<b>Feature data</b>]
+    E[<b>Feature(s) derived from data</b>]
     style E fill:#75a4f0
 
     %% Remove unnecessary box outlines
@@ -86,8 +88,8 @@ graph LR;
 
 ## Success path
 
-1. Features extracted
-2. Features stored in feature store (optional)
+1. Feature(s) derived from data
+2. Feature(s) stored in feature store (optional)
 
 ## Exceptions/Errors
 
