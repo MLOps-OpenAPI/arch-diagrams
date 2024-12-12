@@ -11,7 +11,7 @@ Trained model
 
 ## Output
 
-Containerized model
+Containerized model download path
 
 ```mermaid
 
@@ -66,7 +66,7 @@ graph LR;
     D((Exceptions/Errors))
     style D fill:red
 
-    E[Containerized model]
+    E[Containerized model download path]
     style E fill:blue
 
     %% Remove unnecessary box outlines
