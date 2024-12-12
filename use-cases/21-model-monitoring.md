@@ -2,15 +2,25 @@
 
 ## Description
 
-As an MLOps Engineer, I want to monitor the models I deploy.
+As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">Product Manager</a>, or a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#3rd-party-tester">3rd party tester</a> I want to monitor AI models to ensure their accuracy, reliability, and value. Monitoring for Model drift, data quality, bias and fairness, security, and compliance should be considered for implementation when deploying models. 
+
+Models may be continuously monitored, resources may be limited and pruning/filtering could be necessary.
 
 ## Inputs
 
-Runtime events
+* Alert thresholds
+* Runtime events
+    * User interactions: specific inference requests
+    * Ongoing interactions: continuous inference requests
+    * Non-inference interactions: other interactions that could be useful in debugging
+* System resource events (optional)
+* Logging level (optional)
+
 
 ## Output
 
-Performance report
+* Performance report
+* Alert outputs
 
 ```mermaid
 
@@ -29,37 +39,75 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
+            end
+            subgraph Inputs ["**Inputs**"]
+                A3
+            end
+            subgraph Inputs ["**Inputs**"]
+                A4
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
+            subgraph End ["**End**"]
+                E
+            end
+            subgraph Outputs ["**Outputs**"]
+                D
+            end
         end
-        A-->B
+        A1-->B
+        A2-->B
+        A3-->B
+        A4-->B
+
         %%C--> | test text | D
         B-->C
+        C--> |Yes | D
+        C--> |No | E
         %%D--> | test text | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Runtime events]
-    style A fill:green
+    A1[Runtime events]
+    style A1 fill:green
+
+    A2[Alert thresholds]
+    style A2 fill:green
+
+    A3[System resource events]
+    style A3 fill:green
+
+    A4[Logging Level]
+    style A4 fill:green
 
     B((Model monitoring))
     style B fill:orange
 
-    C[Performance report]
-    style C fill:blue
+    C{<b>Valid?</b>}
+    style C fill:#f1f2b3
+
+    E((<b>Exceptions/Errors</b>))
+    style E fill:#e05e65
+
+    D[Performance report, Alert outputs]
+    style D fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
 
 ```
@@ -67,7 +115,7 @@ graph LR;
 
 ## Success path
 
-1. Models are continuously monitored
+1. Models are monitored
 2. Model metrics are logged at configured level(s)
 3. Alerts are raised when thresholds are reached on metrics that are monitored
 
