@@ -6,11 +6,10 @@
 
 ## Inputs
 
-* Evaluation results
-* Model info (required)
-* Model SALE (Summary of Assumptions, Limitations and Errors/Exceptions)
 * Model test results
-* Risk assessment results
+* Model evaluation results
+* Model overview (required)
+* Model SALE (Summary of Assumptions, Limitations and Errors/Exceptions)
 * TORC score (optional)
 
 ## Output
@@ -48,9 +47,6 @@ graph LR;
             subgraph Inputs ["**Inputs**"]
                 A5
             end
-            subgraph Inputs ["**Inputs**"]
-                A6
-            end
             subgraph Events ["**Events**"]
                 B
             end
@@ -69,7 +65,6 @@ graph LR;
         A3-->B
         A4-->B
         A5-->B
-        A6-->B
         C--> | No | D
         B-->C
         C--> | Yes | E
@@ -78,22 +73,19 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A1[Evaluation results]
+    A1[Model test results]
     style A1 fill:green
 
-    A2[Model info]
+    A2[Model evaluation results]
     style A2 fill:green
 
-    A3[Model SALE]
+    A3[Model overview]
     style A3 fill:green
 
-    A4[Model test results]
+    A4[Model SALE]
     style A4 fill:green
 
-    A5[Risk assessment results]
-    style A5 fill:green
-
-    A6[TORC score]
+    A5[TORC score]
     style A6 fill:green
 
     B((Model card created))
@@ -119,19 +111,17 @@ graph LR;
 
 ## Success path
 
-1. Evaluation results parsed
-2. Model info parsed
-3. Model SALE parsed
-4. Model test results parsed
-5. Risk assessment parsed
-6. TORC score read
-7. Model card generated
+1. Model test results parsed
+2. Model evaluation results parsed
+3. Model overview parsed
+4. Model SALE parsed
+5. TORC score read
+6. Model card generated
 
 ## Exceptions/Errors
 
-1. Evaluation results incomplete
-2. Model info incomplete
-3. Model SALE incomplete
-4. Model test results incomplete
-5. Risk assessment incomplete
-6. TORC score missing
+1. Model test results incomplete
+2. Model evaluation results incomplete
+3. Model overview incomplete
+4. Model SALE incomplete
+5. TORC score missing
