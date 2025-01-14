@@ -34,13 +34,13 @@ graph LR;
         subgraph invisibleSpace["<br/>"]
 
             %% Add the rest of the nodes
-            subgraph Input1 ["**Input**"]
+            subgraph Inputs ["**Input**"]
                 A1
             end
-            subgraph Input2 ["**Input**"]
+            subgraph Inputs ["**Input**"]
                 A2
             end
-            subgraph Input3 ["**Input**"]
+            subgraph Inputs ["**Input**"]
                 A3
             end
             subgraph Events ["**Events**"]
@@ -76,7 +76,6 @@ graph LR;
 
     A3[Deployment Document]
     style A3 fill:green
-
 
     B((Model consumed))
     style B fill:orange
