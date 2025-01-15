@@ -74,19 +74,19 @@ graph LR;
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
     A1[Model test results]
-    style A1 fill:green
+    style A1 fill:blue
 
     A2[Model evaluation results]
-    style A2 fill:green
+    style A2 fill:blue
 
     A3[Model overview]
-    style A3 fill:green
+    style A3 fill:blue
 
     A4[Model SALE]
-    style A4 fill:green
+    style A4 fill:blue
 
     A5[TORC score]
-    style A5 fill:#003333
+    style A5 fill:#006d99
 
     B((Model card created))
     style B fill:#660066
@@ -98,7 +98,7 @@ graph LR;
     style D fill:#990033
 
     E[Model card]
-    style E fill:blue
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0

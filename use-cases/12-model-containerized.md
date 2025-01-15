@@ -2,16 +2,16 @@
 
 ## Description
 
-As a Data Scientist or ML Engineer, I want models packaged in a container so that I can ensure consistent and isolated execution across different computing environments.
+As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a> or <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, I want models packaged in a container so that I can ensure consistent and isolated execution across different computing environments.
 
 ## Inputs
 
-OCI containerization standard;
-Trained model
+* OCI containerization standard
+* Trained model
 
 ## Output
 
-Containerized model download path
+* Containerized model download path
 
 ```mermaid
 
@@ -30,7 +30,10 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
             end
             subgraph Events ["**Events**"]
                 B
@@ -45,7 +48,8 @@ graph LR;
                 E
             end
         end
-        A-->B
+        A1-->B
+        A2-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -54,20 +58,23 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[OCI containerization standard; trained model]
-    style A fill:green
+    A1[OCI containerization standard]
+    style A1 fill:blue
+
+    A2[Trained model]
+    style A2 fill:blue
 
     B((Model containerized))
-    style B fill:orange
+    style B fill:#660066
 
-    C{Valid success path?}
-    style C fill:yellow
+    C{Valid?}
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
     E[Containerized model download path]
-    style E fill:blue
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0

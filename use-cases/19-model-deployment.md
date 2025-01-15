@@ -61,10 +61,10 @@ graph LR;
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
     A1[Containerized model]
-    style A1 fill:green
+    style A1 fill:blue
 
     A2[Inference engine]
-    style A2 fill:green
+    style A2 fill:blue
 
     B((Model deployed))
     style B fill:#660066
@@ -76,7 +76,7 @@ graph LR;
     style D fill:#990033
 
     E[Integrated/Served model]
-    style E fill:blue
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0

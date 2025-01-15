@@ -82,16 +82,16 @@ graph LR;
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
     A1[Runtime events]
-    style A1 fill:green
+    style A1 fill:blue
 
     A2[Alert thresholds]
-    style A2 fill:green
+    style A2 fill:blue
 
     A3[System resource events]
-    style A3 fill:green
+    style A3 fill:blue
 
-    A4[Logging Level]
-    style A4 fill:green
+    A4[Logging level]
+    style A4 fill:blue
 
     B((Model monitoring))
     style B fill:#660066
@@ -103,7 +103,7 @@ graph LR;
     style E fill:#990033
 
     D[Performance report, Alert outputs]
-    style D fill:blue
+    style D fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0

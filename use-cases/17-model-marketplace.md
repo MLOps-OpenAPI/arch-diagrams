@@ -61,10 +61,10 @@ graph LR;
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
     A1[Data card]
-    style A1 fill:green
+    style A1 fill:blue
 
     A2[Model card]
-    style A2 fill:green
+    style A2 fill:blue
 
     B((Model advertised))
     style B fill:#660066
@@ -76,7 +76,7 @@ graph LR;
     style D fill:#990033
 
     E[Model marketplace entry]
-    style E fill:blue
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0

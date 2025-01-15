@@ -2,19 +2,19 @@
 
 ## Description
 
-As a Data Scientist, I want tests evaluated so that I can provide evidence that model results meet user requirements.
+As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, I want tests evaluated so that I can provide evidence that model results meet user requirements.
 
 ## Inputs
 
-Trained model;
-Evaluation strategy;
-Test plan;
-Test data
+* Trained model
+* Evaluation strategy
+* Test plan
+* Test data
 
 ## Success
 
-Evaluation results;
-Model Remediation Plan
+* Evaluation results
+* Model remediation plan
 
 ```mermaid
 
@@ -33,7 +33,16 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
+            end
+            subgraph Inputs ["**Inputs**"]
+                A3
+            end
+            subgraph Inputs ["**Inputs**"]
+                A4
             end
             subgraph Events ["**Events**"]
                 B
@@ -48,7 +57,10 @@ graph LR;
                 E
             end
         end
-        A-->B
+        A1-->B
+        A2-->B
+        A3-->B
+        A4-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -57,20 +69,29 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Trained model; Evaluation strategy; Test plan; Test data]
-    style A fill:green
+    A1[Trained model]
+    style A1 fill:blue
+
+    A2[Evaluation strategy]
+    style A2 fill:blue
+
+    A3[Test plan]
+    style A3 fill:blue
+
+    A4[Test data]
+    style A4 fill:blue
 
     B((Model evaluated))
-    style B fill:orange
+    style B fill:#660066
 
-    C{Valid success path?}
-    style C fill:yellow
+    C{Valid?}
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
-    E[Evaluation results; Model Remediation Plan]
-    style E fill:blue
+    E[Evaluation results; Model remediation plan]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
@@ -86,9 +107,9 @@ graph LR;
 ## Success path
 
 1. Evaluation results generated
-2. Model Remediation Plan generated
+2. Model remediation plan generated
     
 ## Exceptions/Errors
 
 1. Evaluation incomplete
-2. Model Remediation Plan could not be determined
+2. Model remediation plan could not be determined

@@ -2,17 +2,17 @@
 
 ## Description
 
-As a Data Scientist, I want models tested so that I can have confidence in their results.
+As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, I want models tested so that I can have confidence in their results.
 
 ## Inputs
 
-Trained model;
-Test strategy;
-Testing tools
+* Trained model
+* Test strategy
+* Testing tools
 
 ## Output
 
-Test results
+* Test results
 
 ```mermaid
 
@@ -31,7 +31,13 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
+            end
+            subgraph Inputs ["**Inputs**"]
+                A3
             end
             subgraph Events ["**Events**"]
                 B
@@ -46,7 +52,9 @@ graph LR;
                 E
             end
         end
-        A-->B
+        A1-->B
+        A2-->B
+        A3-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -55,20 +63,26 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Trained model; Test strategy; Testing tools]
-    style A fill:green
+    A1[Trained model]
+    style A1 fill:blue
+
+    A2[Test strategy]
+    style A2 fill:blue
+
+    A3[Testing tools]
+    style A3 fill:blue
 
     B((Model tested))
-    style B fill:orange
+    style B fill:#660066
 
-    C{Valid success path?}
-    style C fill:yellow
+    C{Valid?}
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
     E[Model test report]
-    style E fill:blue
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
