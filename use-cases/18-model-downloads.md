@@ -63,13 +63,13 @@ graph LR;
     style A fill:green
 
     B((Model downloaded))
-    style B fill:orange
+    style B fill:#660066
 
     C{Valid?}
-    style C fill:yellow
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
     E[Containerized model, Model card, Data card]
     style E fill:blue
@@ -78,8 +78,9 @@ graph LR;
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
-
 ```
 
 

@@ -2,15 +2,16 @@
 
 ## Description
 
-As a Data Scientist I want to publish my models in a secure way so that other authorized users can download and use them.
+As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, I want to publish my models in a secure way so that other authorized users can download and use them.
 
 ## Inputs
 
-Data card, model card
+* Data card
+* Model card
 
 ## Output
 
-Model marketplace entry
+* Model marketplace entry
 
 ```mermaid
 
@@ -29,37 +30,60 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
+            subgraph End ["**End**"]
+                D
+            end
+            subgraph Outputs ["**Outputs**"]
+                E
+            end
         end
-        A-->B
+        A1-->B
+        A2-->B
         %%C--> | test text | D
         B-->C
+        C--> |Yes | D
+        C--> |No | E
         %%D--> | test text | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Data card, model card]
-    style A fill:green
+    A1[Data card]
+    style A1 fill:green
+
+    A2[Model card]
+    style A2 fill:green
 
     B((Model advertised))
-    style B fill:orange
+    style B fill:#660066
 
-    C[Model marketplace entry]
-    style C fill:blue
+    C{Valid?}
+    style C fill:#666600
+
+    D((Exceptions/Errors))
+    style D fill:#990033
+
+    E[Model marketplace entry]
+    style E fill:blue
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
 
 ```

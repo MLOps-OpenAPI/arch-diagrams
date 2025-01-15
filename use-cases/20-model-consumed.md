@@ -2,11 +2,11 @@
 
 ## Description
 
-* As an <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ai-engineers--intelligent-app-developers'>AI Engineers/Intelligent App Developers</a> I want to integrate or test model inference endpoints with any application.
-* As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a> I want to test my model inference endpoints and share the inference endpoint URL with my team.
-* As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#mlops-engineers">MLOps Engineer</a> I want to unit test and performance test my model inference endpoints.
-* As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#quality-assurance-qa-engineers">Quality Assurance (QA) Engineer</a> I want to test models for stability and performance.
-* As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#security--compliance-officers">Security & Compliance Officers</a> I want to make sure the model adheres to security protocols.
+* As an <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ai-engineers--intelligent-app-developers'>AI Engineer/Intelligent App Developer</a>, I want to integrate or test model inference endpoints with any application.
+* As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, I want to test my model inference endpoints and share the inference endpoint URL with my team.
+* As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, I want to unit test and performance test my model inference endpoints.
+* As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#quality-assurance-qa-engineers">Quality Assurance (QA) Engineer</a>, I want to test models for stability and performance.
+* As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#security--compliance-officers">Security & Compliance Officer</a>, I want to make sure the model adheres to security protocols.
 
 ## Inputs
 
@@ -16,7 +16,7 @@
 
 ## Output
 
-Model response
+* Model response
 
 ```mermaid
 
@@ -34,13 +34,13 @@ graph LR;
         subgraph invisibleSpace["<br/>"]
 
             %% Add the rest of the nodes
-            subgraph Input1 ["**Input**"]
+            subgraph Inputs ["**Input**"]
                 A1
             end
-            subgraph Input2 ["**Input**"]
+            subgraph Inputs ["**Input**"]
                 A2
             end
-            subgraph Input3 ["**Input**"]
+            subgraph Inputs ["**Input**"]
                 A3
             end
             subgraph Events ["**Events**"]
@@ -77,15 +77,14 @@ graph LR;
     A3[Deployment Document]
     style A3 fill:green
 
-
     B((Model consumed))
-    style B fill:orange
+    style B fill:#660066
 
     C{Valid?}
-    style C fill:yellow
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
     E[Model response]
     style E fill:blue
@@ -94,6 +93,8 @@ graph LR;
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
 
 ```

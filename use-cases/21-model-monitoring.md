@@ -62,6 +62,9 @@ graph LR;
             subgraph Outputs ["**Outputs**"]
                 D
             end
+            subgraph Outputs ["**Outputs**"]
+                D
+            end
         end
         A1-->B
         A2-->B
@@ -91,13 +94,13 @@ graph LR;
     style A4 fill:green
 
     B((Model monitoring))
-    style B fill:orange
+    style B fill:#660066
 
     C{<b>Valid?</b>}
-    style C fill:#f1f2b3
+    style C fill:#666600
 
     E((<b>Exceptions/Errors</b>))
-    style E fill:#e05e65
+    style E fill:#990033
 
     D[Performance report, Alert outputs]
     style D fill:blue
