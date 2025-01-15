@@ -2,16 +2,16 @@
 
 ## Description
 
-As a data manager, I want my dataset filtered so that it only contains information relevant to my use case(s).
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists'>data scientist</a> or  <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">product manager</a>, I want my dataset filtered so that it only contains information relevant to my use case(s).
 
 ## Inputs
 
-One or more refined use case documents;
-Raw data from intake location
+* One or more refined use case documents
+* Raw data from intake location
 
 ## Output
 
-Filtered dataset
+* Filtered dataset
 
 ```mermaid
 
@@ -21,7 +21,6 @@ Filtered dataset
 graph LR;
 
     %% Define the common flow items:
-    A--> | Data Intake | B
     %%A--> B
     %%B-->C
     subgraph Pipeline ["**Pipeline**"]
@@ -31,50 +30,69 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                B 
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
             end
             subgraph Events ["**Events**"]
+                B
+            end
+            subgraph Success ["**Success Path**"]
                 C
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph End ["**End**"]
                 D
             end
+            subgraph Outputs ["**Outputs**"]
+                E
+            end
         end
+        A1-->B
+        A2-->B
         B-->C
         %%C--> | test text | D
-        C-->D
-        %%D--> | test text | E
+        C--> | No | D
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
-    A[Raw Data]
-    style A fill:green
+    A1[Raw data from intake location]
+    style A1 fill:blue
 
-    B[Raw Data from Intake; One or more refined Use Cases]
-    style B fill:green
+    A2[One or more refined use cases]
+    style A2 fill:blue
 
-    C((Data Filtering))
-    style C fill:orange
+    B[Data filtering]
+    style B fill:#660066
 
-    D[Filtered Dataset]
-    style D fill:blue
+    C{Valid?}
+    style C fill:#666600
+
+    D((Exceptions/Errors))
+    style D fill:#990033
+    
+    E[Filtered dataset]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
+    style End stroke-width:0
 
 ```
 
 
 ## Success path
 
-1. Raw data filtered according to use case(s)
-2. Data transformations recorded as metadata *
+1. Raw data filtered according to use case(s) *
+2. Data transformations recorded as metadata
 
-\* = required steps
+\* = optional steps
 
 ## Exceptions/Errors
 
