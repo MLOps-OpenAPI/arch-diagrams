@@ -6,13 +6,14 @@ As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md
 
 ## Inputs
 
-Curated data, ready for data analysis;
-Data curation process; Model type
+* Curated data, ready for data analysis
+* Data curation process
+* Model type
 
 ## Output
 
-Curated data, ready for machine learning;
-Data curation description
+* Curated data, ready for machine learning
+* Data curation description
 
 ```mermaid
 
@@ -22,7 +23,6 @@ Data curation description
 graph LR;
 
     %% Define the common flow items:
-    A--> | Data Filtering | B
     %%A--> B
     %%B-->C
     subgraph Pipeline ["**Pipeline**"]
@@ -32,47 +32,58 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                B 
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
+            end
+            subgraph Inputs ["**Inputs**"]
+                A3 
             end
             subgraph Events ["**Events**"]
+                B
+            end
+            subgraph Success ["**Success Path**"]
                 C
             end
-            subgraph Success ["**Success**"]
+            subgraph End ["**End**"]
                 D
             end
-            subgraph End ["**End**"]
+            subgraph Outputs ["**Outputs**"]
                 E
             end
-            subgraph Outputs ["**Outputs**"]
-                F
-            end
         end
+        A1-->B
+        A2-->B
+        A3-->B
         B-->C
-        C-->D
-        D--> | No | E
-        D--> | Yes | F
+        C--> | Yes | E
+        C--> | No | D
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Filtered Data]
-    style A fill:green
+    A1[Curated Data, ready for data analysis]
+    style A1 fill:blue
 
-    B[Curated Data, ready for data analysis; Data curation process, Model type]
-    style B fill:green
+    A2[Data curation process]
+    style A2 fill:blue
 
-    C((Data Curation))
-    style C fill:orange
+    A3[Model type]
+    style A3 fill:blue
 
-    D{Valid success path?}
-    style D fill:yellow
+    B((Data Curation))
+    style B fill:#660066
 
-    E((Exceptions/Errors))
-    style E fill:red
+    C{Valid?}
+    style C fill:#666600
 
-    F[Curated Data, ready for machine learning; Data curation description]
-    style F fill:blue
+    D((Exceptions/Errors))
+    style D fill:#990033
+
+    E[Curated data, ready for machine learning; Data curation description]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
@@ -86,12 +97,11 @@ graph LR;
 
 ## Success path
 
-1. Curated data matches up against model inputs
-2. Data transformations recorded as metadata *
-3. Data/metadata added to secure database *
-    
+1. Curated data matches up against model inputs *
+2. Data transformations recorded as metadata 
+3. Data/metadata added to secure database 
 
-\* = required steps
+\* = optional steps
 
 ## Exceptions/Errors
 

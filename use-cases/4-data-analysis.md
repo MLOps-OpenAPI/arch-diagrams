@@ -6,12 +6,13 @@ As a  <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.m
 
 ## Inputs
 
-Filtered, labeled data
+* Filtered, labeled data
 
 ## Output
 
-Curated, descriptive data (human-readable and understandable);
-Metadata description of curation transforms for the input data.
+* Curated, descriptive data (human-readable and understandable)
+* Metadata description of curation transforms for the input data
+
 TODO: Figure out how to represent required metadata.
 
 ```mermaid
@@ -22,7 +23,6 @@ TODO: Figure out how to represent required metadata.
 graph LR;
 
     %% Define the common flow items:
-    A--> | Data Filtering | B--> | Data Labeling | C
     %%A--> B
     %%B-->C
     subgraph Pipeline ["**Pipeline**"]
@@ -32,50 +32,44 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                C 
+                A 
             end
             subgraph Events ["**Events**"]
-                D
+                B
             end
-            subgraph Success ["**Success**"]
-                E
+            subgraph Success ["**Success Path**"]
+                C
             end
             subgraph End ["**End**"]
-                F
+                D
             end
             subgraph Outputs ["**Outputs**"]
-                G
+                E
             end
         end
-        C-->D
-        D-->E
-        E--> | No | F
-        E--> | Yes | G
+        A-->B
+        B-->C
+        C--> | Yes | E
+        C--> | No | D
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Raw Data]
-    style A fill:green
+    A[Filtered, Labeled Data]
+    style A fill:blue
 
-    B[Filtered Data]
-    style B fill:green
+    B((Data Curation))
+    style B fill:#660066
 
-    C[Filtered, Labeled Data]
-    style C fill:green
+    C{Valid?}
+    style C fill:#666600
 
-    D((Data Curation))
-    style D fill:orange
+    D((Exceptions/Errors))
+    style D fill:#990033
 
-    E{Valid success path?}
-    style E fill:yellow
-
-    F((Exceptions/Errors))
-    style F fill:red
-
-    G[Curated Data, ready for data analysis; Data curation description]
-    style G fill:blue
+    E[Curated data, ready for data analysis; Data curation description]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
@@ -90,13 +84,13 @@ graph LR;
 
 ## Success path
 
-1. Data annotations/descriptions added
-2. Curated data validated against schema/rules
-3. Data transformations recorded as metadata *
-4. Metadata added to secure database *
+1. Data annotations/descriptions added *
+2. Curated data validated against schema/rules *
+3. Data transformations recorded as metadata 
+4. Metadata added to secure database
     
 
-\* = required steps
+\* = optional steps
 
 ## Exceptions/Errors
 

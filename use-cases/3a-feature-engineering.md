@@ -2,8 +2,8 @@
 
 ## Description
 
-As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-scientists'>data scientist</a> or 
-<a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-engineers'>data engineer</a> 
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists'>data scientist</a> or 
+<a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-engineers'>data engineer</a> 
 I want to extract, select, and transform the most relevant data into features from my datasets to produce high-quality ML models. 
 
 ## Inputs
@@ -13,7 +13,7 @@ I want to extract, select, and transform the most relevant data into features fr
 
 ## Output
 
-* Feature(s) derived from data
+* Features derived from data
 
 ```mermaid
 
@@ -59,27 +59,28 @@ graph LR;
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
     A1[<b>Filtered data</b>]
-    style A1 fill:#96c48b
+    style A1 fill:blue
 
     A2[<b>Labeled Data</b>]
-    style A2 fill:#96c48b
+    style A2 fill:blue
 
     B((<b>Feature Engineering</b>))
-    style B fill:#eda57e
+    style B fill:#660066
 
-    C{<b>Valid?</b>}
-    style C fill:#f1f2b3
+    C{Valid?}
+    style C fill:#666600
 
-    D((<b>Exceptions/Errors</b>))
-    style D fill:#e05e65
+    D((Exceptions/Errors))
+    style D fill:#990033
 
-    E[<b>Feature(s) derived from data</b>]
-    style E fill:#75a4f0
+    E[<b>Features derived from data</b>]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
     style End stroke-width:0
 
@@ -88,8 +89,10 @@ graph LR;
 
 ## Success path
 
-1. Feature(s) derived from data
-2. Feature(s) stored in feature store (optional)
+1. Features derived from data
+2. Features stored in feature store *
+
+\* = optional steps
 
 ## Exceptions/Errors
 

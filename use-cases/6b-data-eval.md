@@ -16,7 +16,7 @@ As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md
 
 ## Output
 
-Data evaluation report 
+* Data evaluation report 
 
 ```mermaid
 
@@ -35,12 +35,24 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
+            end
+            subgraph Inputs ["**Inputs**"]
+                A3
+            end
+            subgraph Inputs ["**Inputs**"]
+                A4
+            end
+            subgraph Inputs ["**Inputs**"]
+                A5
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Success ["**Success**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
             subgraph End ["**End**"]
@@ -50,7 +62,11 @@ graph LR;
                 E
             end
         end
-        A-->B
+        A1-->B
+        A2-->B
+        A3-->B
+        A4-->B
+        A5-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -59,20 +75,32 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Draft data card; curated data; metadata for transforms; data test report; ground truth labels if available]
-    style A fill:green
+    A1[Draft data card]
+    style A1 fill:blue
+
+    A2[Curated data]
+    style A2 fill:blue
+
+    A3[Metadata for transforms]
+    style A3 fill:blue
+
+    A4[Data test report]
+    style A4 fill:blue
+
+    A5[Ground truth labels]
+    style A5 fill:#006d99
 
     B((Data Evaluation))
-    style B fill:orange
+    style B fill:#660066
 
-    C{Valid success path?}
-    style C fill:yellow
+    C{Valid?}
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
     E[Data evaluation report]
-    style E fill:blue
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
