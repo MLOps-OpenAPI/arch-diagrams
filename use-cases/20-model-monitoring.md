@@ -1,4 +1,4 @@
-# Use Case 21: Model Monitoring
+# Use Case 20: Model Monitoring
 
 ## Description
 
@@ -40,14 +40,8 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A1
-            end
-            subgraph Inputs ["**Inputs**"]
                 A2
-            end
-            subgraph Inputs ["**Inputs**"]
                 A3
-            end
-            subgraph Inputs ["**Inputs**"]
                 A4
             end
             subgraph Events ["**Events**"]
@@ -60,21 +54,16 @@ graph LR;
                 E
             end
             subgraph Outputs ["**Outputs**"]
-                D
-            end
-            subgraph Outputs ["**Outputs**"]
-                D
+                D1
+                D2
             end
         end
-        A1-->B
-        A2-->B
-        A3-->B
-        A4-->B
+        Inputs-->B
 
         %%C--> | test text | D
         B-->C
-        C--> |Yes | D
-        C--> |No | E
+        C--> | Yes | Outputs
+        C--> | No | E
         %%D--> | test text | E
     end
 
@@ -102,16 +91,17 @@ graph LR;
     E((<b>Exceptions/Errors</b>))
     style E fill:#990033
 
-    D[Performance report, Alert outputs]
-    style D fill:green
+    D1[Performance report]
+    style D1 fill:green
+
+    D2[Alert outputs]
+    style D2 fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0
-    style Outputs stroke-width:0
 
 ```
 

@@ -2,7 +2,7 @@
 
 ## Description
 
-As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists'>data scientist</a> or  <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">product manager</a>, I want my dataset filtered so that it only contains information relevant to my use case(s).
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists'>Data Scientist</a> or <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">Product Manager</a>, I want my dataset filtered so that it only contains information relevant to my use case(s).
 
 ## Inputs
 
@@ -31,8 +31,6 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A1
-            end
-            subgraph Inputs ["**Inputs**"]
                 A2
             end
             subgraph Events ["**Events**"]
@@ -48,8 +46,7 @@ graph LR;
                 E
             end
         end
-        A1-->B
-        A2-->B
+        Inputs-->B
         B-->C
         %%C--> | test text | D
         C--> | No | D
@@ -78,7 +75,6 @@ graph LR;
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style Success stroke-width:0
     style Outputs stroke-width:0

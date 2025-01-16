@@ -1,4 +1,4 @@
-# Use Case 11: Model evaluation
+# Use Case 12: Model evaluation
 
 ## Description
 
@@ -34,14 +34,8 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A1
-            end
-            subgraph Inputs ["**Inputs**"]
                 A2
-            end
-            subgraph Inputs ["**Inputs**"]
                 A3
-            end
-            subgraph Inputs ["**Inputs**"]
                 A4
             end
             subgraph Events ["**Events**"]
@@ -54,16 +48,14 @@ graph LR;
                 D
             end
             subgraph Outputs ["**Outputs**"]
-                E
+                E1
+                E2
             end
         end
-        A1-->B
-        A2-->B
-        A3-->B
-        A4-->B
+        Inputs-->B
         B-->C
         C--> | No | D
-        C--> | Yes | E
+        C--> | Yes | Outputs
     end
 
     %% Now label and style the blocks
@@ -90,14 +82,15 @@ graph LR;
     D((Exceptions/Errors))
     style D fill:#990033
 
-    E[Evaluation results; Model remediation plan]
-    style E fill:green
+    E1[Evaluation results]
+    style E1 fill:green
+
+    E2[Model remediation plan]
+    style E2 fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
-    style Outputs stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0
 

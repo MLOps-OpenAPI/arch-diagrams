@@ -1,4 +1,4 @@
-# Use Case 17: Model Marketplace
+# Use Case 16: Model Marketplace
 
 ## Description
 
@@ -31,8 +31,6 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A1
-            end
-            subgraph Inputs ["**Inputs**"]
                 A2
             end
             subgraph Events ["**Events**"]
@@ -48,8 +46,7 @@ graph LR;
                 E
             end
         end
-        A1-->B
-        A2-->B
+        Inputs-->B
         %%C--> | test text | D
         B-->C
         C--> |Yes | D
@@ -80,7 +77,6 @@ graph LR;
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0

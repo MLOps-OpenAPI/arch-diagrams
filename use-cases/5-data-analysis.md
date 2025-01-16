@@ -2,7 +2,7 @@
 
 ## Description
 
-As a  <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-scientists'>data scientist</a> or <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-engineers'>data engineer</a>, I want my dataset in an understandable form so that I can perform analysis on it.
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists'>Data Scientist</a>, I want my dataset in an understandable form so that I can perform analysis on it.
 
 ## Inputs
 
@@ -44,12 +44,13 @@ graph LR;
                 D
             end
             subgraph Outputs ["**Outputs**"]
-                E
+                E1
+                E2
             end
         end
         A-->B
         B-->C
-        C--> | Yes | E
+        C--> | Yes | Outputs
         C--> | No | D
     end
 
@@ -68,14 +69,16 @@ graph LR;
     D((Exceptions/Errors))
     style D fill:#990033
 
-    E[Curated data, ready for data analysis; Data curation description]
-    style E fill:green
+    E1[Curated data, ready for data analysis]
+    style E1 fill:green
+
+    E2[Data curation description]
+    style E2 fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
     style Inputs stroke-width:0
     style Events stroke-width:0
-    style Outputs stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0
 

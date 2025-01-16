@@ -1,4 +1,4 @@
-# Use Case 18: Model Downloads
+# Use Case 17: Model Downloads
 
 ## Description
 
@@ -12,11 +12,13 @@
 
 ## Inputs
 
-Selected Model Marketplace Entry
+* Selected Model Marketplace entry
 
 ## Output
 
-Containerized model, Model card, Data card
+* Containerized model
+* Model card
+* Data card
 
 ```mermaid
 
@@ -47,19 +49,21 @@ graph LR;
                 D
             end
             subgraph Outputs ["**Outputs**"]
-                E
+                E1
+                E2
+                E3
             end
         end
         A-->B
         C--> | No | D
         B-->C
-        C--> | Yes | E
+        C--> | Yes | Outputs
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Selected Model Marketplace Entry]
+    A[Selected Model Marketplace entry]
     style A fill:blue
 
     B((Model downloaded))
@@ -71,8 +75,14 @@ graph LR;
     D((Exceptions/Errors))
     style D fill:#990033
 
-    E[Containerized model, Model card, Data card]
-    style E fill:green
+    E1[Containerized model]
+    style E1 fill:green
+
+    E2[Model card]
+    style E2 fill:green
+
+    E3[Data card]
+    style E3 fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
@@ -80,7 +90,6 @@ graph LR;
     style Events stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0
-    style Outputs stroke-width:0
 ```
 
 

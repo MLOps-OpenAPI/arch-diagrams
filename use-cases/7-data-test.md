@@ -1,8 +1,8 @@
-# Use Case 6: Data Test
+# Use Case 7: Data Test
 
 ## Description
 
-As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams/blob/main/README.md#data-engineer'>data engineer</a>, I want my curated datasets tested so that I can have confidence in the data.
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists'>Data Scientist</a>, I want my curated datasets tested so that I can have confidence in the data.
 
 ## Inputs
 
@@ -35,14 +35,8 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A1
-            end
-            subgraph Inputs ["**Inputs**"]
                 A2
-            end
-            subgraph Inputs ["**Inputs**"]
                 A3
-            end
-            subgraph Inputs ["**Inputs**"]
                 A4
             end
             subgraph Events ["**Events**"]
@@ -58,10 +52,7 @@ graph LR;
                 E
             end
         end
-        A1-->B
-        A2-->B
-        A3-->B
-        A4-->B
+        Inputs-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -96,7 +87,6 @@ graph LR;
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
     style End stroke-width:0

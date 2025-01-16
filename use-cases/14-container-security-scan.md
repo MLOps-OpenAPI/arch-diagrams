@@ -1,4 +1,4 @@
-# Use Case 13: Container Security Scan
+# Use Case 14: Container Security Scan
 
 ## Description
 
@@ -31,8 +31,6 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A1
-            end
-            subgraph Inputs ["**Inputs**"]
                 A2
             end
             subgraph Events ["**Events**"]
@@ -48,8 +46,7 @@ graph LR;
                 E
             end
         end
-        A1-->B
-        A2-->B
+        Inputs-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -81,7 +78,6 @@ graph LR;
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
     style End stroke-width:0

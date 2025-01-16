@@ -1,8 +1,8 @@
-# Use Case 7: Data Card Finalized
+# Use Case 9: Data Card Finalized
 
 ## Description
 
-As a Product Manager, I want my [data card](https://sites.research.google/datacardsplaybook/) in a final form so that the dataset quality is communicated to customers.
+As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">Product Manager</a>, I want my [data card](https://sites.research.google/datacardsplaybook/) in a final form so that the dataset quality is communicated to customers.
 
 ## Inputs
 
@@ -33,14 +33,8 @@ graph LR;
         subgraph invisibleSpace["<br/>"]
             subgraph Inputs ["**Inputs**"]
                 A1
-            end
-            subgraph Inputs ["**Inputs**"]
                 A2
-            end
-            subgraph Inputs ["**Inputs**"]
                 A3
-            end
-            subgraph Inputs ["**Inputs**"]
                 A4
             end
             subgraph Events ["**Events**"]
@@ -56,10 +50,7 @@ graph LR;
                 E
             end
         end
-        A1-->B
-        A2-->B
-        A3-->B
-        A4-->B
+        Inputs-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -94,7 +85,6 @@ graph LR;
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
     style End stroke-width:0

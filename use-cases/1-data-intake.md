@@ -2,7 +2,7 @@
 
 ## Description
 
-As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists'>data scientist</a> or  <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">product manager</a>, I want to upload raw data and associated background information into my data environment so that I can track its format, contents and lineage.
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists'>Data Scientist</a> or <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">Product Manager</a>, I want to upload raw data and associated background information into my data environment so that I can track its format, contents and lineage.
 
 ## Inputs
 
@@ -31,8 +31,6 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A1
-            end            
-            subgraph Inputs ["**Inputs**"]
                 A2
             end
             subgraph Events ["**Events**"]
@@ -45,15 +43,16 @@ graph LR;
                 D
             end
             subgraph Outputs ["**Outputs**"]
-                E
+                E1
+                E2
+                E3
             end
         end
-        A1-->B
-        A2-->B
+        Inputs-->B
         B-->C
         %%C--> | test text | D
         C--> | No | D
-        C--> | Yes | E
+        C--> | Yes | Outputs
     end
 
     %% Now label and style the blocks
@@ -74,15 +73,19 @@ graph LR;
     D((Exceptions/Errors))
     style D fill:#990033
 
-    E[Raw data; Naming standard; Draft data card]
-    style E fill:green
+    E1[Raw data]
+    style E1 fill:green
+
+    E2[Naming standard]
+    style E2 fill:green
+
+    E3[Draft data card]
+    style E3 fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style Success stroke-width:0
-    style Outputs stroke-width:0
     style End stroke-width:0
 
 ```
