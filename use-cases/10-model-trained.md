@@ -1,16 +1,18 @@
-# Use Case 9: Model trained
+# Use Case 10: Model trained
 
 ## Description
 
-As a ML engineer or a Data Scientist, I want my model trained so that I can make predictions on new unseen data.
+As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a> or a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, I want my model trained so that I can make predictions on new unseen data.
 
 ## Inputs
 
-Trainable data from curated ML-ready dataset; ML algorithm hyperparameters in JSON format
+* Trainable data from curated ML-ready dataset
+* ML algorithm hyperparameters in JSON format
 
 ## Output
 
-Trained model; Model weights
+* Trained model
+* Model weights
 
 
 ```mermaid
@@ -29,50 +31,56 @@ graph LR;
         subgraph invisibleSpace["<br/>"]
 
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+                A2
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Success ["**Success**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
             subgraph End ["**End**"]
                 D
             end
             subgraph Outputs ["**Outputs**"]
-                E
+                E1
+                E2
             end
         end
-        A-->B
+        Inputs-->B
         B-->C
         C--> | No | D
-        C--> | Yes | E
+        C--> | Yes | Outputs
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Trainable data from curated ML-ready dataset; ML algorithm hyperparameters in JSON format]
-    style A fill:green
+    A1[Trainable data from curated ML-ready dataset]
+    style A1 fill:blue
+
+    A2[ML algorithm hyperparameters in JSON format]
+    style A2 fill:blue
 
     B((Model training))
-    style B fill:orange
+    style B fill:#660066
 
-    C{Valid success path?}
-    style C fill:yellow
+    C{Valid?}
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
-    E[Trained model; model weights]
-    style E fill:blue
+    E1[Trained model]
+    style E1 fill:green
+    
+    E2[Model weights]
+    style E2 fill:green
     
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
-    style Outputs stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0
 

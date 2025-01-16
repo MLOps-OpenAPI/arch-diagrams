@@ -1,17 +1,17 @@
-# Use Case 13: Container Security Scan
+# Use Case 13: Model containerized (optional)
 
 ## Description
 
-As a Security Officer or ML Engineer, I want model containers hardened so that I can reduce vulnerabilities to make the containers resilient against security threats.
+As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a> or <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, I want models packaged in a container so that I can ensure consistent and isolated execution across different computing environments.
 
 ## Inputs
 
-Security standard;
-Containerized model
+* OCI containerization standard
+* Trained model
 
 ## Output
 
-Hardened model container
+* Containerized model download path
 
 ```mermaid
 
@@ -30,12 +30,15 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+            end
+            subgraph Inputs ["**Inputs**"]
+                A2
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Success ["**Success**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
             subgraph End ["**End**"]
@@ -45,7 +48,8 @@ graph LR;
                 E
             end
         end
-        A-->B
+        A1-->B
+        A2-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -54,23 +58,23 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Security standard; containerized model]
-    style A fill:green
+    A1[OCI containerization standard]
+    style A1 fill:blue
 
-    B((Container hardened))
-    style B fill:orange
+    A2[Trained model]
+    style A2 fill:blue
 
-    C[Hardened model container]
-    style C fill:blue
+    B((Model containerized))
+    style B fill:#660066
 
-    C{Valid success path?}
-    style C fill:yellow
+    C{Valid?}
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
-    E[Hardened model container]
-    style E fill:blue
+    E[Containerized model download path]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
@@ -79,13 +83,20 @@ graph LR;
     style Outputs stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0
+
 ```
 
 
 ## Success path
 
-1. Model container hardened
+1. Dependencies identified
+2. Container(s) generated
+3. Needed ports opened
+4. Service configuration file generated
+5. Software bill of materials generated
     
 ## Exceptions/Errors
 
-1. Scan failed
+1. Dependencies not identified
+2. Containers not generated
+3. Cannot open necessary ports

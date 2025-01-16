@@ -1,4 +1,4 @@
-# Use Case 17: Model Marketplace
+# Use Case 16: Model Marketplace
 
 ## Description
 
@@ -35,14 +35,8 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A1
-            end
-            subgraph Inputs ["**Inputs**"]
                 A2
-            end            
-            subgraph Inputs ["**Inputs**"]
                 A3
-            end
-            subgraph Inputs ["**Inputs**"]
                 A4
             end
             subgraph Events ["**Events**"]
@@ -58,10 +52,7 @@ graph LR;
                 D
             end
         end
-        A1-->B
-        A2-->B
-        A3-->B
-        A4-->B
+        Inputs-->B
         %%C--> | test text | D
         B-->C
         C--> |Yes | D
@@ -73,32 +64,34 @@ graph LR;
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
     A1[Data card]
-    style A1 fill:green
-    
+    style A1 fill:blue
+
     A2[Model card]
-    style A2 fill:green
+    style A2 fill:blue
 
     A3[Model upload URI]
-    style A3 fill:green
+    style A3 fill:blue
 
     A4[List of Marketplace URIs]
-    style A4 fill:green
+    style A4 fill:blue
 
     B((Model advertised))
-    style B fill:orange
+    style B fill:#660066
 
-    C{<b>Valid?</b>}
-    style C fill:#f1f2b3
-
-    E((<b>Exceptions/Errors</b>))
-    style E fill:#e05e65
+    C{Valid?}
+    style C fill:#666600
 
     D[Model marketplace entry URI]
-    style D fill:blue
+    style D fill:green
+
+    E((Exceptions/Errors))
+    style E fill:#990033
+
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
 
 ```

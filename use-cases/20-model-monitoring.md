@@ -1,4 +1,4 @@
-# Use Case 21: Model Monitoring
+# Use Case 20: Model Monitoring (optional)
 
 ## Description
 
@@ -40,14 +40,8 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A1
-            end
-            subgraph Inputs ["**Inputs**"]
                 A2
-            end
-            subgraph Inputs ["**Inputs**"]
                 A3
-            end
-            subgraph Inputs ["**Inputs**"]
                 A4
             end
             subgraph Events ["**Events**"]
@@ -60,18 +54,16 @@ graph LR;
                 E
             end
             subgraph Outputs ["**Outputs**"]
-                D
+                D1
+                D2
             end
         end
-        A1-->B
-        A2-->B
-        A3-->B
-        A4-->B
+        Inputs-->B
 
         %%C--> | test text | D
         B-->C
-        C--> |Yes | D
-        C--> |No | E
+        C--> | Yes | Outputs
+        C--> | No | E
         %%D--> | test text | E
     end
 
@@ -79,36 +71,37 @@ graph LR;
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
     A1[Runtime events]
-    style A1 fill:green
+    style A1 fill:blue
 
     A2[Alert thresholds]
-    style A2 fill:green
+    style A2 fill:blue
 
     A3[System resource events]
-    style A3 fill:green
+    style A3 fill:blue
 
-    A4[Logging Level]
-    style A4 fill:green
+    A4[Logging level]
+    style A4 fill:blue
 
     B((Model monitoring))
-    style B fill:orange
+    style B fill:#660066
 
     C{<b>Valid?</b>}
-    style C fill:#f1f2b3
+    style C fill:#666600
 
     E((<b>Exceptions/Errors</b>))
-    style E fill:#e05e65
+    style E fill:#990033
 
-    D[Performance report, Alert outputs]
-    style D fill:blue
+    D1[Performance report]
+    style D1 fill:green
+
+    D2[Alert outputs]
+    style D2 fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0
-    style Outputs stroke-width:0
 
 ```
 

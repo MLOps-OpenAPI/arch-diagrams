@@ -1,17 +1,17 @@
-# Use Case 3: Data Labeling
+# Use Case 3: Data Labeling (optional)
 
 ## Description
 
-As a data manager, I want my dataset labeled so that I can prepare it for machine learning.
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists'>Data Scientist</a> or <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">Product Manager</a>, I want my dataset labeled so that I can prepare it for machine learning.
 
 ## Inputs
 
-Filtered data;
-Object ontology
+* Filtered data
+* Object ontology
 
 ## Output
 
-Filtered, labeled data
+* Filtered, labeled data
 
 ```mermaid
 
@@ -21,7 +21,6 @@ Filtered, labeled data
 graph LR;
 
     %% Define the common flow items:
-    A--> | Data Filtering | B 
     %%A--> B
     %%B-->C
     subgraph Pipeline ["**Pipeline**"]
@@ -31,41 +30,56 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                B 
+                A1
+                A2
             end
             subgraph Events ["**Events**"]
+                B
+            end
+            subgraph Success ["**Success Path**"]
                 C
             end
-            subgraph Outputs ["**Outputs**"]
+            subgraph End ["**End**"]
                 D
             end
+            subgraph Outputs ["**Outputs**"]
+                E
+            end
         end
+        Inputs-->B
         B-->C
         %%C--> | test text | D
-        C-->D
-        %%D--> | test text | E
+        C--> | No | D
+        C--> | Yes | E
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Raw Data]
-    style A fill:green
+    A1[Filtered data]
+    style A1 fill:blue
 
-    B[Filtered Data]
-    style B fill:green
+    A2[Object ontology]
+    style A2 fill:blue
 
-    C((Data Labeling))
-    style C fill:orange
+    B[Data labeling]
+    style B fill:#660066
 
-    D[Filtered, labeled data]
-    style D fill:blue
+    C{Valid?}
+    style C fill:#666600
+
+    D((Exceptions/Errors))
+    style D fill:#990033
+
+    E[Filtered, labeled data]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
+    style End stroke-width:0
 
 ```
 

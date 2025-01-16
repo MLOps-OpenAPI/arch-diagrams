@@ -1,20 +1,19 @@
-# Use Case 11: Model evaluation
+# Use Case 4: Feature Engineering (optional)
 
 ## Description
 
-As a Data Scientist, I want tests evaluated so that I can provide evidence that model results meet user requirements.
+As a <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists'>Data Scientist</a> or 
+<a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-engineers'>Data Engineer</a> 
+I want to extract, select, and transform the most relevant data into features from my datasets to produce high-quality ML models. 
 
 ## Inputs
 
-Trained model;
-Evaluation strategy;
-Test plan;
-Test data
+* Filtered data
+* Labeled data
 
-## Success
+## Output
 
-Evaluation results;
-Model Remediation Plan
+* Features derived from data
 
 ```mermaid
 
@@ -24,8 +23,6 @@ Model Remediation Plan
 graph LR;
 
     %% Define the common flow items:
-    %%A--> B
-    %%B-->C
     subgraph Pipeline ["**Pipeline**"]
         
         %% Add an empty node to overcome some formatting issues
@@ -33,12 +30,13 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1 
+                A2 
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Success ["**Success**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
             subgraph End ["**End**"]
@@ -48,7 +46,7 @@ graph LR;
                 E
             end
         end
-        A-->B
+        Inputs-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -57,38 +55,42 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Trained model; Evaluation strategy; Test plan; Test data]
-    style A fill:green
+    A1[<b>Filtered data</b>]
+    style A1 fill:blue
 
-    B((Model evaluated))
-    style B fill:orange
+    A2[<b>Labeled Data</b>]
+    style A2 fill:blue
 
-    C{Valid success path?}
-    style C fill:yellow
+    B((<b>Feature Engineering</b>))
+    style B fill:#660066
+
+    C{Valid?}
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
-    E[Evaluation results; Model Remediation Plan]
-    style E fill:blue
+    E[<b>Features derived from data</b>]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
     style End stroke-width:0
-    style Success stroke-width:0
 
 ```
 
 
 ## Success path
 
-1. Evaluation results generated
-2. Model Remediation Plan generated
-    
+1. Features derived from data
+2. Features stored in feature store *
+
+\* = optional steps
+
 ## Exceptions/Errors
 
-1. Evaluation incomplete
-2. Model Remediation Plan could not be determined
+1. Feature store not available
+2. Features not extracted

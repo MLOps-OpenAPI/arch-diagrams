@@ -1,18 +1,21 @@
-# Use Case 7: Data Card Finalized
+# Use Case 9: Data Card Finalized (optional)
 
 ## Description
 
-As a Product Manager, I want my [data card](https://sites.research.google/datacardsplaybook/) in a final form so that the dataset quality is communicated to customers.
+As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">Product Manager</a>, I want my [data card](https://sites.research.google/datacardsplaybook/) in a final form so that the dataset quality is communicated to customers.
 
 ## Inputs
 
-Draft data card; data curation description; data evaluation report; data handling guidance*
+* Draft data card
+* Data curation description
+* Data evaluation report
+* Data handling guidance*
 
 \* = optional input
 
 ## Output
 
-Final data card
+* Final data card
 
 ```mermaid
 
@@ -29,12 +32,15 @@ graph LR;
         %% Add an empty node to overcome some formatting issues
         subgraph invisibleSpace["<br/>"]
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+                A2
+                A3
+                A4
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Success ["**Success**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
             subgraph End ["**End**"]
@@ -44,7 +50,7 @@ graph LR;
                 E
             end
         end
-        A-->B
+        Inputs-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -53,24 +59,32 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Draft data card; data curation description; data test report; data handling guidance if available]
-    style A fill:green
+    A1[Draft data card]
+    style A1 fill:blue
+
+    A2[Data curation description]
+    style A2 fill:blue
+
+    A3[Data test report]
+    style A3 fill:blue
+
+    A4[Data handling guidance]
+    style A4 fill:#006d99
 
     B((Data card finalized))
-    style B fill:orange
+    style B fill:#660066
 
-    C{Valid success path?}
-    style C fill:yellow
+    C{Valid?}
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
-    C[Final data card]
-    style E fill:blue
+    E[Final data card]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
     style End stroke-width:0

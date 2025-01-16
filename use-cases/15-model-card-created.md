@@ -1,4 +1,4 @@
-# Use Case 15: Model card created
+# Use Case 15: Model card created (optional)
 
 ## Description
 
@@ -34,17 +34,9 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
                 A1
-            end
-            subgraph Inputs ["**Inputs**"]
                 A2
-            end
-            subgraph Inputs ["**Inputs**"]
                 A3
-            end
-            subgraph Inputs ["**Inputs**"]
                 A4
-            end
-            subgraph Inputs ["**Inputs**"]
                 A5
             end
             subgraph Events ["**Events**"]
@@ -60,11 +52,7 @@ graph LR;
                 E
             end
         end
-        A1-->B
-        A2-->B
-        A3-->B
-        A4-->B
-        A5-->B
+        Inputs-->B
         C--> | No | D
         B-->C
         C--> | Yes | E
@@ -74,36 +62,37 @@ graph LR;
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
     A1[Model test results]
-    style A1 fill:green
+    style A1 fill:blue
 
     A2[Model evaluation results]
-    style A2 fill:green
+    style A2 fill:blue
 
     A3[Model overview]
-    style A3 fill:green
+    style A3 fill:blue
 
     A4[Model SALE]
-    style A4 fill:green
+    style A4 fill:blue
 
     A5[TORC score]
-    style A6 fill:green
+    style A5 fill:#006d99
 
     B((Model card created))
-    style B fill:orange
+    style B fill:#660066
 
     C{Valid?}
-    style C fill:yellow
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
     E[Model card]
-    style E fill:blue
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
-    style Events stroke-width:0
+        style Events stroke-width:0
+    style End stroke-width:0
+    style Success stroke-width:0
     style Outputs stroke-width:0
 
 ```

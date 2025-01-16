@@ -1,17 +1,18 @@
-# Use Case 12: Model containerized
+# Use Case 11: Model test (optional)
 
 ## Description
 
-As a Data Scientist or ML Engineer, I want models packaged in a container so that I can ensure consistent and isolated execution across different computing environments.
+As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, I want models tested so that I can have confidence in their results.
 
 ## Inputs
 
-OCI containerization standard;
-Trained model
+* Trained model
+* Test strategy
+* Testing tools
 
 ## Output
 
-Containerized model download path
+* Test results
 
 ```mermaid
 
@@ -30,12 +31,14 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+                A2
+                A3
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Success ["**Success**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
             subgraph End ["**End**"]
@@ -45,7 +48,7 @@ graph LR;
                 E
             end
         end
-        A-->B
+        Inputs-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -54,24 +57,29 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[OCI containerization standard; trained model]
-    style A fill:green
+    A1[Trained model]
+    style A1 fill:blue
 
-    B((Model containerized))
-    style B fill:orange
+    A2[Test strategy]
+    style A2 fill:blue
 
-    C{Valid success path?}
-    style C fill:yellow
+    A3[Testing tools]
+    style A3 fill:blue
+
+    B((Model tested))
+    style B fill:#660066
+
+    C{Valid?}
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
-    E[Containerized model download path]
-    style E fill:blue
+    E[Model test report]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
     style End stroke-width:0
@@ -82,14 +90,14 @@ graph LR;
 
 ## Success path
 
-1. Dependencies identified
-2. Container(s) generated
-3. Needed ports opened
-4. Service configuration file generated
-5. Software bill of materials generated
+1. Test report generated
+2. Data/metadata added to secure database
     
 ## Exceptions/Errors
 
-1. Dependencies not identified
-2. Containers not generated
-3. Cannot open necessary ports
+1. One or more test cases not executed
+2. Test data missing
+3. Data could not be added to database
+4. Metadata not recorded
+5. Database not accessible
+6. Test report incomplete; test strategy not followed

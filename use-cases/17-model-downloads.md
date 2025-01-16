@@ -1,4 +1,4 @@
-# Use Case 20: Model Consumed
+# Use Case 17: Model Downloads (optional)
 
 ## Description
 
@@ -8,15 +8,19 @@
 * As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#quality-assurance-qa-engineers">Quality Assurance (QA) Engineer</a> I want to test models for stability and performance.
 * As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#security--compliance-officers">Security & Compliance Officers</a> I want to make sure the model adheres to security protocols.
 
+* As an <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ai-engineers--intelligent-app-developers'>AI Engineers/Intelligent App Developers</a>, <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#3rd-party-tester'>3rd party tester</a>, or <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#security--compliance-officers'>Security & Compliance Officer</a> I want to download secure models with knowledge of the data the model was trained on as well as details of the model.
+
 ## Inputs
 
-* API spec
+* Selected Model Marketplace entry
 * Model API endpoint
 * Deployment document
 
 ## Output
 
-Model response
+* Containerized model
+* Model card
+* Data card
 
 ```mermaid
 
@@ -36,11 +40,7 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Input**"]
                 A1
-            end
-            subgraph Inputs ["**Input**"]
                 A2
-            end
-            subgraph Inputs ["**Input**"]
                 A3
             end
             subgraph Events ["**Events**"]
@@ -53,57 +53,59 @@ graph LR;
                 D
             end
             subgraph Outputs ["**Outputs**"]
-                E
+                E1
+                E2
+                E3
             end
         end
-        A1-->B
-        A2-->B
-        A3-->B
-        %%C--> | test text | D
-        B-->C
+        Inputs-->B
         C--> | No | D
-        C--> | Yes | E
+        B-->C
+        C--> | Yes | Outputs
     end
 
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A1[API spec]
-    style A1 fill:green
+    A1[Selected Model Marketplace entry]
+    style A1 fill:blue
 
     A2[Model API endpoint]
-    style A2 fill:green
+    style A2 fill:blue
 
     A3[Deployment Document]
-    style A3 fill:green
+    style A3 fill:blue
 
     B((Model consumed))
-    style B fill:orange
+    style B fill:#660066
 
     C{Valid?}
-    style C fill:yellow
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
-    E[Model response]
-    style E fill:blue
+    E1[Containerized model]
+    style E1 fill:green
+
+    E2[Model card]
+    style E2 fill:green
+
+    E3[Data card]
+    style E3 fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
-    style Outputs stroke-width:0
-
+    style End stroke-width:0
+    style Success stroke-width:0
 ```
 
 
 ## Success path
 
-1. Models are accessible
-2. Models return appropriate response
+1. A valid model, model card, and data card are downloaded.
 
 ## Exceptions/Errors
 
-1. Models not available
-2. Models not returning correct response
+1. Model, model card, or data card not fully downloaded.

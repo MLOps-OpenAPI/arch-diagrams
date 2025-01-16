@@ -1,18 +1,17 @@
-# Use Case 10: Model test
+# Use Case 14: Container Security Scan (optional)
 
 ## Description
 
-As a Data Scientist, I want models tested so that I can have confidence in their results.
+As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#security--compliance-officers">Security Officer</a> or <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, I want model containers hardened so that I can reduce vulnerabilities to make the containers resilient against security threats.
 
 ## Inputs
 
-Trained model;
-Test strategy;
-Testing tools
+* Security standard
+* Containerized model
 
 ## Output
 
-Test results
+* Hardened model container
 
 ```mermaid
 
@@ -31,12 +30,13 @@ graph LR;
 
             %% Add the rest of the nodes
             subgraph Inputs ["**Inputs**"]
-                A
+                A1
+                A2
             end
             subgraph Events ["**Events**"]
                 B
             end
-            subgraph Success ["**Success**"]
+            subgraph Success ["**Success Path**"]
                 C
             end
             subgraph End ["**End**"]
@@ -46,7 +46,7 @@ graph LR;
                 E
             end
         end
-        A-->B
+        Inputs-->B
         B-->C
         C--> | No | D
         C--> | Yes | E
@@ -55,42 +55,40 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Trained model; Test strategy; Testing tools]
-    style A fill:green
+    A1[Security standard]
+    style A1 fill:blue
 
-    B((Model tested))
-    style B fill:orange
+    A2[Containerized model]
+    style A2 fill:blue
 
-    C{Valid success path?}
-    style C fill:yellow
+    B((Container hardened))
+    style B fill:#660066
+
+    C[Hardened model container]
+    style C fill:blue
+
+    C{Valid?}
+    style C fill:#666600
 
     D((Exceptions/Errors))
-    style D fill:red
+    style D fill:#990033
 
-    E[Model test report]
-    style E fill:blue
+    E[Hardened model container]
+    style E fill:green
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style Outputs stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0
-
 ```
 
 
 ## Success path
 
-1. Test report generated
-2. Data/metadata added to secure database
+1. Model container hardened
     
 ## Exceptions/Errors
 
-1. One or more test cases not executed
-2. Test data missing
-3. Data could not be added to database
-4. Metadata not recorded
-5. Database not accessible
-6. Test report incomplete; test strategy not followed
+1. Scan failed
