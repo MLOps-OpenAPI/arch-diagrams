@@ -1,4 +1,4 @@
-# Use Case 14: Container Security Scan
+# Use Case 14: Container Security Scan (optional)
 
 ## Description
 

@@ -1,4 +1,4 @@
-# Use Case 12: Model evaluation
+# Use Case 12: Model evaluation (optional)
 
 ## Description
 

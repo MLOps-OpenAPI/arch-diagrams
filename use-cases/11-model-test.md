@@ -1,4 +1,4 @@
-# Use Case 11: Model test
+# Use Case 11: Model test (optional)
 
 ## Description
 

@@ -1,4 +1,4 @@
-# Use Case 17: Model Downloads
+# Use Case 17: Model Downloads (optional)
 
 ## Description
 

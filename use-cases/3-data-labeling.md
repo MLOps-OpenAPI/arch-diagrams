@@ -1,4 +1,4 @@
-# Use Case 3: Data Labeling
+# Use Case 3: Data Labeling (optional)
 
 ## Description
 

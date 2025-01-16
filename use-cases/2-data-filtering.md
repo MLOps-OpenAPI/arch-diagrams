@@ -1,4 +1,4 @@
-# Use Case 2: Data Filtering
+# Use Case 2: Data Filtering (optional)
 
 ## Description
 

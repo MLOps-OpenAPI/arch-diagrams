@@ -1,4 +1,4 @@
-# Use Case 9: Data Card Finalized
+# Use Case 9: Data Card Finalized (optional)
 
 ## Description
 

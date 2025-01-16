@@ -1,4 +1,4 @@
-# Use Case 13: Model containerized
+# Use Case 13: Model containerized (optional)
 
 ## Description
 

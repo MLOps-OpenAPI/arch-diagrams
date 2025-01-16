@@ -1,4 +1,4 @@
-# Use Case 4: Feature Engineering
+# Use Case 4: Feature Engineering (optional)
 
 ## Description
 

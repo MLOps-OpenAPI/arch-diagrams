@@ -1,4 +1,4 @@
-# Use Case 15: Model card created
+# Use Case 15: Model card created (optional)
 
 ## Description
 
