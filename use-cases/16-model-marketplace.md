@@ -2,16 +2,20 @@
 
 ## Description
 
-As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, I want to publish my models in a secure way so that other authorized users can download and use them.
+As a <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#data-scientists">Data Scientist</a>, <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#product-managers">Product Manager</a> or <a href="https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ml-engineers">ML Engineer</a>, I want to publish models in a secure way so that other authorized users can download and use them.
 
 ## Inputs
 
 * Data card
 * Model card
+* Model upload URI
+* List of Marketplace URIs* 
+
+\* = optional input; defaults pulled from Settings
 
 ## Output
 
-* Model marketplace entry
+Model marketplace entry URI
 
 ```mermaid
 
@@ -32,6 +36,8 @@ graph LR;
             subgraph Inputs ["**Inputs**"]
                 A1
                 A2
+                A3
+                A4
             end
             subgraph Events ["**Events**"]
                 B
@@ -40,10 +46,10 @@ graph LR;
                 C
             end
             subgraph End ["**End**"]
-                D
+                E
             end
             subgraph Outputs ["**Outputs**"]
-                E
+                D
             end
         end
         Inputs-->B
@@ -63,17 +69,23 @@ graph LR;
     A2[Model card]
     style A2 fill:blue
 
+    A3[Model upload URI]
+    style A3 fill:blue
+
+    A4[List of Marketplace URIs]
+    style A4 fill:blue
+
     B((Model advertised))
     style B fill:#660066
 
     C{Valid?}
     style C fill:#666600
 
-    D((Exceptions/Errors))
-    style D fill:#990033
+    D[Model marketplace entry URI]
+    style D fill:green
 
-    E[Model marketplace entry]
-    style E fill:green
+    E((Exceptions/Errors))
+    style E fill:#990033
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
@@ -92,4 +104,5 @@ graph LR;
 ## Exceptions/Errors
 
 1. The model is not uploaded successfully.
-2. Unauthorized users have access to download the model.
+2. Unauthorized users **do not** have access to download the model.
+3. Inability to upload the model.

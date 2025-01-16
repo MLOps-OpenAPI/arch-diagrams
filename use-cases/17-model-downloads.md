@@ -13,6 +13,8 @@
 ## Inputs
 
 * Selected Model Marketplace entry
+* Model API endpoint
+* Deployment document
 
 ## Output
 
@@ -36,8 +38,10 @@ graph LR;
         subgraph invisibleSpace["<br/>"]
 
             %% Add the rest of the nodes
-            subgraph Inputs ["**Inputs**"]
-                A
+            subgraph Inputs ["**Input**"]
+                A1
+                A2
+                A3
             end
             subgraph Events ["**Events**"]
                 B
@@ -54,7 +58,7 @@ graph LR;
                 E3
             end
         end
-        A-->B
+        Inputs-->B
         C--> | No | D
         B-->C
         C--> | Yes | Outputs
@@ -63,10 +67,16 @@ graph LR;
     %% Now label and style the blocks
     %% Note: You could have done this above, but I find this to be cleaner and easier to manage
 
-    A[Selected Model Marketplace entry]
-    style A fill:blue
+    A1[Selected Model Marketplace entry]
+    style A1 fill:blue
 
-    B((Model downloaded))
+    A2[Model API endpoint]
+    style A2 fill:blue
+
+    A3[Deployment Document]
+    style A3 fill:blue
+
+    B((Model consumed))
     style B fill:#660066
 
     C{Valid?}
@@ -86,7 +96,6 @@ graph LR;
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0
