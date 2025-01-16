@@ -1,5 +1,4 @@
-# Use Case 19: Model Consumed
-
+# Use Case 19: Model Consumed (optional)
 ## Description
 
 * As an <a href='https://github.com/MLOps-OpenAPI/arch-diagrams?tab=readme-ov-file#ai-engineers--intelligent-app-developers'>AI Engineer/Intelligent App Developer</a>, I want to integrate or test model inference endpoints with any application.
@@ -36,11 +35,7 @@ graph LR;
             %% Add the rest of the nodes
             subgraph Inputs ["**Input**"]
                 A1
-            end
-            subgraph Inputs ["**Input**"]
                 A2
-            end
-            subgraph Inputs ["**Input**"]
                 A3
             end
             subgraph Events ["**Events**"]
@@ -56,9 +51,7 @@ graph LR;
                 E
             end
         end
-        A1-->B
-        A2-->B
-        A3-->B
+        Inputs-->B
         %%C--> | test text | D
         B-->C
         C--> | No | D
@@ -91,7 +84,6 @@ graph LR;
 
     %% Remove unnecessary box outlines
     style invisibleSpace stroke-width:0
-    style Inputs stroke-width:0
     style Events stroke-width:0
     style End stroke-width:0
     style Success stroke-width:0
