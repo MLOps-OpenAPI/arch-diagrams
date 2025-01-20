@@ -1,5 +1,8 @@
 # arch-diagrams
 
+## Required Fields
+
+For each use case there are a set of inputs that are needed to run the event. By default - for documentation simplicity - we assume that all fields are required. When there is a mix of required and optional fields, the required fields will be specifically identified by the following symbol: `*`.
 
 ## Personas
 
